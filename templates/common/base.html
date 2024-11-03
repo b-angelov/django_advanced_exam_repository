@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="bg-bg">
+<head>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+{# here you can add planet image container if you'd like#}
+<div id="container">
+    <div id="container-top-border">
+
+    </div>
+
+    <div id="website">
+        <div id="header-main-wrapper">
+            <div id="header">
+                <a href="{% url 'home-page' %}">
+                    <div id="logo">
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <div id="user3">
+                <table cellpadding="00" cellspacing="00" class="pill" align="center"
+                       style="padding:0px; margin:auto;  text-align:center; border-collapse:collapse;  border-spacing:0; border-style:none; border-width:0px;">
+                    <tr>
+                        <td class="pwdth">
+
+                        </td>
+
+                        <td class="pill_up_border">
+
+                        </td>
+
+                        <td class="pwdth">
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="pill_l">
+                            &nbsp;
+                        </td>
+
+                        <td class="pill_m">
+                            <div class="" id="use3">
+                                {% block use3_content %}
+                                	
+                                {% endblock %}
+                            </div>
+
+                        </td>
+
+                        <td class="pill_r">
+                            &nbsp;
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div id="content">
+            <div id="style-around">
+                <div id="style-around-column">
+                    <div class="images-container-backgrounder">
+                        <div class="images-container-backgrounder-row">
+                            <div class="top-item-backgrounder">
+
+                            </div>
+
+                        </div>
+
+                        <div class="images-container-backgrounder-row">
+                            <div class="main-item-backgrounder main-item-backgrounder-left">
+
+                            </div>
+
+                        </div>
+
+                        <div class="images-container-backgrounder-row">
+                            <div class="bottom-item-backgrounder">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="right-style">
+                    <div class="images-container-backgrounder">
+                        <div class="images-container-backgrounder-row">
+                            <div class="top-item-backgrounder">
+
+                            </div>
+
+                        </div>
+
+                        <div class="images-container-backgrounder-row">
+                            <div class="main-item-backgrounder main-item-backgrounder-right">
+
+                            </div>
+
+                        </div>
+
+                        <div class="images-container-backgrounder-row">
+                            <div class="bottom-item-backgrounder">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="left">
+
+                </div>
+
+                <div id="component_right">
+                    <div class="" id="above-component">
+                        {% block over_main_content %}
+                        	
+                        {% endblock %}
+                    </div>
+
+                    <div class="no-component-background  disable-preview">
+                        <div class="message-container  disable-preview">
+                            {% block message_content %}
+                            	
+                            {% endblock %}
+                        </div>
+
+                        <div class="component-wrapper">
+                            {% block main_content %}
+                            	
+                            {% endblock %}
+                        </div>
+
+                    </div>
+
+                    <div class="" id="below-component">
+                        {% block under_main_content %}
+                        	
+                        {% endblock %}
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div id="footer">
+                {% block footer_content %}
+                	
+                {% endblock %}
+                  {% include 'common/copyright-message.html' %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="bottom">
+
+    </div>
+
+</div>
+
+</tag|class=div|containerplanetimage>
+
+</body>
+
+</html>
