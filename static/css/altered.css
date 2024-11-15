@@ -227,11 +227,18 @@ ul#menu .deeper:hover{
 }
 
 #header{
-	background-size:100%;
+	background-size:cover;
 }
 
 #logo{
-	margin-left: 35vw;
+	left: 0;
+	margin-left: 30vw;
+	position: relative;
+	max-width:30vw;
+	max-height: 15vh;
+	background-size: contain;
+	background-repeat: no-repeat;
+	filter: drop-shadow(3px 4px 2px rgb(121,122,123,0.9));
 }
 
 #component_right{
@@ -244,6 +251,39 @@ ul#menu .deeper:hover{
 
 }
 
+#header-main-wrapper, #header{
+	min-height: 40vh;
+	max-height: 60vh;
+	height: fit-content;
+}
+
+#header{
+	height: fit-content;
+}
+
+#header-main-wrapper{
+	height: min-content;
+}
+
+body{
+	min-width: 100vw;
+}
+
+#user3 li {
+
+}
+
+#user3 li a {
+	background: none;
+	color: rgba(123, 64, 5, 0.71);
+	text-shadow: 0.06em 0.02em rgba(22, 32, 41, 0.81);
+	font-size: 1.1em;
+	transition: all 0.6s ease-in-out;
+}
+
+#user3 li a:hover{
+	color: rgba(130, 68, 7, 0.5);
+}
 
 
 

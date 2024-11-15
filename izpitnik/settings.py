@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'izpitnik.accounts.apps.UserConfig',
-    'izpitnik.common.apps.CommonConfig'
+    'izpitnik.common.apps.CommonConfig',
+    'izpitnik.navigation.apps.NavigationConfig',
+    'colorfield'
 ]
 
 MIDDLEWARE = [
