@@ -1,4 +1,5 @@
 {% load static %}
+{% load navigation_render %}
 <!DOCTYPE html>
 <html lang="bg-bg">
 <head>
@@ -50,6 +51,7 @@
 
                         <td class="pill_m">
                             <div class="" id="use3">
+                                {% nav_render 'navigation/nav.html' 'main-menu' %}
                                 {% block use3_content %}
                                 	
                                 {% endblock %}
