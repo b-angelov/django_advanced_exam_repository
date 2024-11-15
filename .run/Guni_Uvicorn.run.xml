@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Guni/Uvicorn" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="python -m gunicorn izpitnik.asgi:application -k uvicorn_worker.UvicornWorker" />
+    <option name="SCRIPT_TEXT" value="python -m gunicorn --bind 0.0.0.0:8000 izpitnik.asgi:application -k uvicorn_worker.UvicornWorker --reload" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
     <option name="SCRIPT_OPTIONS" value="" />
