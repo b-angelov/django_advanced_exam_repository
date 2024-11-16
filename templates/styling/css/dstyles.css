@@ -1,0 +1,83 @@
+{% load has_style %}
+{% with object_list as obl %}
+
+#container{
+    {% hstyle obl 'container' 'border-top' %}
+}
+
+#website{
+    {% hstyle obl 'website' 'background-color' 'background-color:%s;' %}
+}
+
+#user3{
+
+    {% hstyle obl 'header-gradient' 'background-color' %}
+}
+
+.nav li a{
+    {% hstyle obl 'navigation' 'font-color' 'color:%s!important;' %}
+    {% hstyle obl 'navigation' 'text-shadow' 'text-shadow:%s!important;' %}
+}
+
+.nav li a:hover{
+    {% hstyle obl 'navigation' 'hover-font-color' 'color:%s!important;' %}
+}
+
+body{
+    {% hstyle obl 'body' 'font-style' 'font-family:%s;' %}
+    {% hstyle obl 'body' 'background-image' 'background:url(%s) %s %s;' 'image-repeat,image-color' %}
+    {% hstyle obl 'body' 'background-width' 'background-size: %s %s;' 'background-height' %}
+    {% hstyle obl 'body' 'background-attachment' 'background-attachment: %s;' %}
+    {% hstyle obl 'body' 'margin' 'margin: %s;' %}
+    {% hstyle obl 'body' 'padding' 'padding: %s;' %}
+    {% hstyle obl 'body' 'font-weight' 'font-weight: %s;' %}
+    {% hstyle obl 'body' 'font-size' 'font-size: %s;' %}
+    {% hstyle obl 'body' 'font-color' 'color: %s;' %}
+}
+
+.blog .items-leading > div,
+.blog-featured .items-leading > div,
+ .item-page,
+ .item,
+ .contact,
+ .category-list,
+  .login-container,
+  .no-component-background,
+ #above-component > div,
+ #below-component > div,
+ #below-component ul li,
+ #above-component ul li,
+#component-container > .component-wrapper > * > * > *,
+ #component-container .login-container ul li,
+ #content .message-container,
+div.newsflash > *
+{
+    {% hstyle obl 'component-container' 'opacity' 'opacity: 0.%s;' %}
+    {% hstyle obl 'component-container' 'opacity' 'filter: alpha(opacity=%s);' %}
+    {% hstyle obl 'component-container' 'border-radius' 'border-radius: %s;' %}
+    {% hstyle obl 'component-container' 'background-color' 'background-color: rbga(%s,%s);' 'background-opacity' %}
+    {% hstyle obl 'component-container' 'border-width' 'border-width: %s;' %}
+    {% hstyle obl 'component-container' 'padding' 'padding: %s;' %}
+
+}
+
+
+#below-component li:hover ,
+#above-component li:hover,
+#component-container .login-container li:hover{
+    {% hstyle obl 'component-hover' 'background-color-rgb' 'background-color: rgb(%s,%s);' 'background-opacity' %}
+}
+
+#below-main-content{
+    {% hstyle obl 'below-main-content' 'z-index' 'z-index: %s;' %}
+}
+
+#footer{
+    {% hstyle obl 'footer' 'background' 'background: %s repeat-x;' %}
+}
+
+
+#header{
+	    {% hstyle obl 'header' 'background' 'background: url(%s) no-repeat; background-size:cover;' %}
+}
+{%endwith%}

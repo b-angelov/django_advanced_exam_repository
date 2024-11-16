@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('izpitnik.common.urls')),
     path('navigation/', include('izpitnik.navigation.urls')),
+    path('dstyles/', include('izpitnik.styling.urls')),
 ]
