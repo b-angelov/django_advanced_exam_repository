@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'izpitnik.accounts.apps.UserConfig',
     'izpitnik.common.apps.CommonConfig',
     'izpitnik.navigation.apps.NavigationConfig',
-    'colorfield'
+    'colorfield',
+    'izpitnik.styling.apps.StylingConfig'
 ]
 
 MIDDLEWARE = [
