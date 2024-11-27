@@ -1,0 +1,243 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-26 12:38+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: izpitnik/accounts/apps.py:8
+msgid "account"
+msgstr "акаунт"
+
+#: izpitnik/accounts/apps.py:9
+msgid "accounts"
+msgstr "акаунти"
+
+#: izpitnik/common/apps.py:7 izpitnik/common/apps.py:8
+msgid "common"
+msgstr "общи"
+
+#: izpitnik/navigation/admin.py:31 izpitnik/navigation/models.py:33
+msgid "menu"
+msgstr "меню"
+
+#: izpitnik/navigation/admin.py:43 izpitnik/navigation/forms.py:12
+#: izpitnik/navigation/models.py:21 izpitnik/navigation/models.py:135
+#: izpitnik/orth_calendar/models.py:20 izpitnik/orth_calendar/models.py:38
+#: izpitnik/styling/models.py:43
+#, fuzzy
+#| msgid "item name"
+msgid "name"
+msgstr "име"
+
+#: izpitnik/navigation/apps.py:8 izpitnik/navigation/models.py:113
+msgid "navigation"
+msgstr "навигация"
+
+#: izpitnik/navigation/apps.py:9 izpitnik/navigation/models.py:114
+msgid "navigations"
+msgstr "навигации"
+
+#: izpitnik/navigation/forms.py:17 izpitnik/navigation/models.py:142
+#, fuzzy
+#| msgid "language"
+msgid "language code"
+msgstr "езиков код"
+
+#: izpitnik/navigation/models.py:28
+msgid "slug"
+msgstr "слъг"
+
+#: izpitnik/navigation/models.py:34
+msgid "menus"
+msgstr "менюта"
+
+#: izpitnik/navigation/models.py:62
+msgid "item name"
+msgstr "име на елемент"
+
+#: izpitnik/navigation/models.py:67
+msgid "external URL"
+msgstr "външен URL"
+
+#: izpitnik/navigation/models.py:72
+msgid "internal URL"
+msgstr "вътрешен URL"
+
+#: izpitnik/navigation/models.py:80
+msgid "parent ID"
+msgstr "родителско ID"
+
+#: izpitnik/navigation/models.py:93 izpitnik/navigation/models.py:146
+msgid "language"
+msgstr "език"
+
+#: izpitnik/navigation/models.py:100
+msgid "order"
+msgstr "подредба"
+
+#: izpitnik/navigation/models.py:147
+#, fuzzy
+#| msgid "language"
+msgid "languages"
+msgstr "езици"
+
+#: izpitnik/orth_calendar/apps.py:8
+msgid "orthodox calendar"
+msgstr "православен календар"
+
+#: izpitnik/orth_calendar/apps.py:9
+msgid "orthodox calendars"
+msgstr "православни календари"
+
+#: izpitnik/orth_calendar/forms.py:20
+msgid "Add comma separated feast list here:"
+msgstr "Добави списък на празниците, разделен със запетая:"
+
+#: izpitnik/orth_calendar/forms.py:22 izpitnik/orth_calendar/models.py:31
+#: izpitnik/orth_calendar/models.py:93
+msgid "feast"
+msgstr "празник"
+
+#: izpitnik/orth_calendar/forms.py:27
+msgid "Add comma separated saints list here:"
+msgstr "Добави списък на светците, разделен със запетая:"
+
+#: izpitnik/orth_calendar/forms.py:29 izpitnik/orth_calendar/models.py:13
+#: izpitnik/orth_calendar/models.py:44 izpitnik/orth_calendar/models.py:100
+msgid "saint"
+msgstr "светец"
+
+#: izpitnik/orth_calendar/models.py:14
+msgid "saints"
+msgstr "светци"
+
+#: izpitnik/orth_calendar/models.py:32
+msgid "feasts"
+msgstr "празници"
+
+#: izpitnik/orth_calendar/models.py:54
+msgid "Julian in gregorian"
+msgstr "Юлиански в Григориански"
+
+#: izpitnik/orth_calendar/models.py:55
+msgid "Julian"
+msgstr "Юлиански"
+
+#: izpitnik/orth_calendar/models.py:56
+msgid "Gregorian"
+msgstr "Григориански"
+
+#: izpitnik/orth_calendar/models.py:59
+msgid "holiday occurrence"
+msgstr "проявление на празника"
+
+#: izpitnik/orth_calendar/models.py:60
+msgid "holiday occurrences"
+msgstr "проявления на празника"
+
+#: izpitnik/orth_calendar/models.py:64
+msgid "date"
+msgstr "дата"
+
+#: izpitnik/orth_calendar/models.py:72
+msgid "calendar"
+msgstr "календар"
+
+#: izpitnik/orth_calendar/models.py:79
+msgid "easter distance"
+msgstr "отстояние от Велик Ден"
+
+#: izpitnik/orth_calendar/models.py:86
+msgid "christmas distance"
+msgstr "отстояние от Рождество Христово"
+
+#: izpitnik/orth_calendar/models.py:111
+#, fuzzy
+#| msgid "holiday occurrence"
+msgid "related holiday occurrence"
+msgstr "свързано проявление на празника"
+
+#: izpitnik/orth_calendar/models.py:112
+#, fuzzy
+#| msgid "holiday occurrences"
+msgid "related holiday occurrences"
+msgstr "свързани проявления на празника"
+
+#: izpitnik/settings.py:131
+msgid "English"
+msgstr "Английски"
+
+#: izpitnik/settings.py:132
+msgid "Bulgarian"
+msgstr "Български"
+
+#: izpitnik/styling/apps.py:8
+msgid "styling"
+msgstr "стилизация"
+
+#: izpitnik/styling/apps.py:9
+msgid "stylings"
+msgstr "стилизации"
+
+#: izpitnik/styling/models.py:15
+#, fuzzy
+#| msgid "section"
+msgid "section name"
+msgstr "име на секция"
+
+#: izpitnik/styling/models.py:20
+#, fuzzy
+#| msgid "sections"
+msgid "section style"
+msgstr "стил на секция"
+
+#: izpitnik/styling/models.py:27 izpitnik/styling/models.py:73
+msgid "section"
+msgstr "секция"
+
+#: izpitnik/styling/models.py:28
+msgid "sections"
+msgstr "секции"
+
+#: izpitnik/styling/models.py:50
+msgid "value"
+msgstr "стойност"
+
+#: izpitnik/styling/models.py:55
+#, fuzzy
+#| msgid "styling"
+msgid "style"
+msgstr "стил"
+
+#: izpitnik/styling/models.py:63
+msgid "type"
+msgstr "тип"
+
+#: izpitnik/styling/models.py:67
+msgid "enabled"
+msgstr "включено"
+
+#: izpitnik/styling/models.py:80
+msgid "option"
+msgstr "настройка"
+
+#: izpitnik/styling/models.py:81
+msgid "settings"
+msgstr "настройки"
+
+#~ msgid "some other"
+#~ msgstr "още други"
