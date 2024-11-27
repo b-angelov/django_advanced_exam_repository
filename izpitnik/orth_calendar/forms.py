@@ -79,31 +79,11 @@ class RelatedHolidayOccurrencesAdminForm(forms.ModelForm):
         self.fields['feast'].queryset = Feast.objects.filter(pk__in=self.__override_queryset('feast'))
         self.fields['saint'].queryset = Saint.objects.filter(pk__in=self.__override_queryset('saint'))
 
-    # def get_initial_for_field(self, field, field_name):
-    #     initial = super().get_initial_for_field(field,field_name)
-    #     obj = self._meta.model
-    #     if field_name in ('saint','feast'):
-    #         date = self.initial.get('date')
-    #         # date = datetime.strptime(date,'%Y-%m-%d')
-    #         calendar = self.initial.get('calendar')
-    #         print(self.initial.get('calendar'), date)
-    #         distances = Calculus(date, calendar).get_distance()
-    #         print(distances)
-    #         initial = obj.objects.prefetch_related('saint','feast').filter(Q(easter_distance=distances['easter']) | Q(christmas_distance=distances['christmas']))
-    #         if field_name == 'saint':
-    #             initial = set(i for init in initial for i in init.saint.all())
-    #             print(list(initial))
-    #         elif field_name == 'feast':
-    #             initial = set(i for init in initial for i in init.feast.all())
-    #         initial = list(initial)
-    #     return initial
 
     def get_initial_for_field(self, field, field_name):
         initial = super().get_initial_for_field(field, field_name)
-        print(initial)
         if field_name == 'date' and not initial:
             initial = self._meta.model.objects.order_by('-pk').first().date + timedelta(days=1)
-            print(initial)
         return initial
 
     def __override_queryset(self, field_name):
@@ -111,16 +91,12 @@ class RelatedHolidayOccurrencesAdminForm(forms.ModelForm):
         obj = self._meta.model
         if field_name in ('saint', 'feast'):
             date = self.initial.get('date') or self.get_initial_for_field(self.fields['date'], 'date')
-            # date = datetime.strptime(date,'%Y-%m-%d')
             calendar = self.initial.get('calendar') or 'JIG'
-            print(self.initial.get('calendar'), date)
             distances = Calculus(date, calendar).get_distance()
-            print(distances)
             initial = obj.objects.prefetch_related('saint', 'feast').filter(
                 Q(easter_distance=distances['easter']) | Q(christmas_distance=distances['christmas']))
             if field_name == 'saint':
                 initial = set(i.pk for init in initial for i in init.saint.all())
-                print(list(initial))
             elif field_name == 'feast':
                 initial = set(i.pk for init in initial for i in init.feast.all())
         return initial
