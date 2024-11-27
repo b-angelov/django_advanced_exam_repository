@@ -1,33 +1,4 @@
 
-@font-face{
-font-family:oldCyrillic;
-src:url('../fonts/oldc.ttf');
-/*ultra-stretch:condensed;*/
-font-style:normal;
-/*font-weight:900;*/
-font-size:18pt;
-word-spacing:5px;
-}
-
-@font-face{
-font-family:uniphone;
-src:url('../fonts/Nnph.ttf');
-/*ultra-stretch:condensed;*/
-font-style:normal;
-font-weight:100;
-font-size:5pt !important;
-word-spacing:5px;
-}
-
-@font-face{
-font-family:glagolica;
-src:url('../fonts/glagolica.ttf');
-font-style:normal;
-font-weight:100;
-font-size:5pt !important;
-word-spacing:5px;
-}
-
 #container{
 
 

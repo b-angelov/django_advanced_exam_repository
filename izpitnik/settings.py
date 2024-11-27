@@ -9,10 +9,10 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
 from pathlib import Path
 
 from decouple import Config, config, Csv
+from django.utils.translation import gettext_noop as _
 from pygments.lexer import default
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -33,23 +33,39 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(post_process=list))
 
 # Application definition
 
-INSTALLED_APPS = [
+UNFOLD_SETTINGS = [
+    "unfold",  # before django.contrib.admin
+    "unfold.contrib.filters",  # optional, if special filters are needed
+    "unfold.contrib.forms",  # optional, if special form elements are needed
+    "unfold.contrib.inlines",  # optional, if special inlines are needed
+    "unfold.contrib.import_export",  # optional, if django-import-export package is used
+    "unfold.contrib.guardian",  # optional, if django-guardian package is used
+    "unfold.contrib.simple_history",  # optional, if django-simple-history package is used
+]
+
+MY_SETTINGS = [
+    'izpitnik.accounts.apps.UserConfig',
+    'izpitnik.common.apps.CommonConfig',
+    'izpitnik.navigation.apps.NavigationConfig',
+    'colorfield',
+    'izpitnik.styling.apps.StylingConfig',
+    'izpitnik.orth_calendar.apps.OrthCalendarConfig',
+]
+
+INSTALLED_APPS = UNFOLD_SETTINGS + [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'izpitnik.accounts.apps.UserConfig',
-    'izpitnik.common.apps.CommonConfig',
-    'izpitnik.navigation.apps.NavigationConfig',
-    'colorfield',
-    'izpitnik.styling.apps.StylingConfig'
-]
+
+] + MY_SETTINGS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -123,7 +139,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'bg-bg'
+LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = (
+    ("en-US",_("English")),
+    ("bg-BG",_("Bulgarian")),
+)
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 TIME_ZONE = 'Europe/Sofia'
 

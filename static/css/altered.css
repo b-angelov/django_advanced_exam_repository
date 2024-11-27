@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
+
 #left .nav,
  #left .menu,
   #left .moduletable .nav,
@@ -283,6 +284,32 @@ body{
 
 #user3 li a:hover{
 	color: rgba(130, 68, 7, 0.5);
+}
+
+.dropdown-menu{
+	display:none;
+	position:absolute;
+	z-index:8000;
+	padding:0;
+	margin:0;
+	bottom:-22px;
+	min-width:fit-content !important;
+	background-color: rgb(11,111,112,0.35) !important;
+
+}
+
+.dropdown-menu li{
+	min-width:fit-content !important;
+	padding:0 !important;
+	background-color: rgb(11,111,112,0.35);
+}
+
+.nav{
+	font-family: oldCyrillic, fontawesomeregular, fontawesomesolid, fontawesomebrands, serif;
+}
+
+#user3 table{
+	bottom:17px;
 }
 
 
