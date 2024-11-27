@@ -13,6 +13,9 @@ from izpitnik.orth_calendar.utils.calculus import Calculus
 from izpitnik.orth_calendar.utils.lazy_utils import capitalize_lazy
 
 
+
+
+
 class HolidayOccurrencesAdminForm(forms.ModelForm):
 
 
@@ -94,7 +97,7 @@ class RelatedHolidayOccurrencesAdminForm(forms.ModelForm):
             calendar = self.initial.get('calendar') or 'JIG'
             distances = Calculus(date, calendar).get_distance()
             initial = obj.objects.prefetch_related('saint', 'feast').filter(
-                Q(easter_distance=distances['easter']) | Q(christmas_distance=distances['christmas']))
+                Q(easter_distance=distances['easter']) | Q(christmas_distance=distances['christmas'] % 365))
             if field_name == 'saint':
                 initial = set(i.pk for init in initial for i in init.saint.all())
             elif field_name == 'feast':

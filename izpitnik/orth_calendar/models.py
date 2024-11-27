@@ -41,7 +41,8 @@ class Feast(models.Model):
     saint = models.ManyToManyField(
         to=Saint,
         related_name='feasts',
-        verbose_name=_("saint")
+        verbose_name=_("saint"),
+        blank=True,
     )
 
     def __str__(self):
@@ -88,14 +89,14 @@ class HolidayOccurrences(models.Model):
     feast = models.ManyToManyField(
         to=Feast,
         blank=True,
-        related_name="occurences",
+        related_name="occurrences",
         default=None,
         verbose_name=_("feast"),
     )
     saint = models.ManyToManyField(
         to=Saint,
         blank=True,
-        related_name="occurences",
+        related_name="occurrences",
         default=None,
         verbose_name=_("saint"),
     )
