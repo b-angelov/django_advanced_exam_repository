@@ -59,8 +59,25 @@ INSTALLED_APPS = UNFOLD_SETTINGS + [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_swagger',
+    'drf_yasg',
+    'drf_spectacular',
 
 ] + MY_SETTINGS
+
+REST_FRAMEWORK = {
+'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Izpitnik',
+    'DESCRIPTION': 'My exam project',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

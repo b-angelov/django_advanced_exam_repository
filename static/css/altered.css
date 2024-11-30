@@ -233,9 +233,10 @@ ul#menu .deeper:hover{
 
 #logo{
 	left: 0;
-	margin-left: 30vw;
+	margin-left: 42%;
 	position: relative;
-	max-width:30vw;
+	max-width:20%;
+	min-width:10%;
 	max-height: 15vh;
 	background-size: contain;
 	background-repeat: no-repeat;
