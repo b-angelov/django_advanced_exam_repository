@@ -7,9 +7,10 @@ from rest_framework.generics import RetrieveAPIView, ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from izpitnik.orth_calendar.models import Saint, Feast
+from izpitnik.orth_calendar.models import Saint, Feast, HolidayOccurrences
 from izpitnik.orth_calendar.serializers.feasts import FeastsSerializer, FeastSerializerWithRelatedHolidays, \
     FeastSerializerWithRelatedSaints, FeastSerializerWithHolidaysAndSaints
+from izpitnik.orth_calendar.serializers.holiday_occurrences import HolidayOccurrencesSerializer
 from izpitnik.orth_calendar.serializers.saints import SaintsSerializer, SaintsSerializerRelatedHolidays, \
     SaintsSerializerRelatedFeasts, SaintsSerializerRelatedHolidaysAndFeasts
 
@@ -77,6 +78,16 @@ class SingleSaintView(RetrieveAPIView):
         )
         return serializer
 
+
+@extend_schema(
+    responses={201: SaintsSerializer, 400: SaintsSerializer},
+    parameters=[
+        OpenApiParameter(name='name', description='Saint name', type=str),
+        OpenApiParameter(name='related_holidays', description='Load related holidays', type=str),
+        OpenApiParameter(name='related_saints', description='Load related saints', type=str),
+
+    ]
+)
 class FeastListView(ListAPIView):
     queryset = Feast.objects.prefetch_related('occurrences','saint').all()
 
@@ -89,10 +100,35 @@ class FeastListView(ListAPIView):
         )
         return serializer
 
+@extend_schema(
+    responses={201: SaintsSerializer, 400: SaintsSerializer},
+    parameters=[
+        OpenApiParameter(name='name', description='Saint name', type=str),
+        OpenApiParameter(name='related_holidays', description='Load related holidays', type=str),
+        OpenApiParameter(name='related_saints', description='Load related saints', type=str),
+
+    ]
+)
 class SingleFeastView(RetrieveAPIView):
 
     get_serializer_class = FeastListView.get_serializer_class
     queryset = Feast.objects.prefetch_related('occurrences','saint').all()
+
+
+class HolidayListView(ListAPIView):
+
+    def get_queryset(self):
+        queryset = HolidayOccurrences.objects.all()
+        return queryset
+
+    def get_serializer_class(self):
+        return HolidayOccurrencesSerializer
+
+class SingleHolidayView(RetrieveAPIView):
+
+    get_queryset = HolidayListView.get_queryset
+    get_serializer_class = HolidayListView.get_serializer_class
+
 
 
 

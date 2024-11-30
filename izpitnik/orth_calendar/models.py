@@ -1,7 +1,9 @@
 from django.core.validators import MaxValueValidator
 from django.db import models
+from django.db.models import QuerySet
 from django.utils.translation import gettext_lazy as _
 
+from izpitnik.orth_calendar.managers import HolidaysRelatedManager
 from izpitnik.orth_calendar.validators import RangeValidator
 
 
@@ -22,6 +24,8 @@ class Saint(models.Model):
 
     def __str__(self):
         return self.name
+
+    objects = HolidaysRelatedManager()
 
 
 
@@ -47,6 +51,9 @@ class Feast(models.Model):
 
     def __str__(self):
         return self.name
+
+    objects = HolidaysRelatedManager()
+
 
 
 class HolidayOccurrences(models.Model):
@@ -91,18 +98,45 @@ class HolidayOccurrences(models.Model):
         blank=True,
         related_name="occurrences",
         default=None,
-        verbose_name=_("feast"),
+        verbose_name=_("feast")
     )
+
     saint = models.ManyToManyField(
         to=Saint,
         blank=True,
         related_name="occurrences",
         default=None,
-        verbose_name=_("saint"),
+        verbose_name=_("saint")
     )
+
 
     def __str__(self):
         return f"{self.date.strftime("%Y. %m. %d.")} - {self.CalendarChoices._value2member_map_[self.calendar].name}"
+
+    def christmas_related_saints(self) -> QuerySet:
+        return Saint.objects.get_christmas_related(str(self.date))
+
+    def easter_related_saints(self) -> QuerySet:
+        return Saint.objects.get_easter_related(str(self.date))
+
+    def christmas_and_easter_related_saints(self) -> QuerySet:
+        return Saint.objects.get_christmas_and_easter_related(str(self.date))
+
+    def christmas_related_feasts(self) -> QuerySet:
+        return Feast.objects.get_christmas_related(str(self.date))
+
+    def easter_related_feasts(self) -> QuerySet:
+        return Feast.objects.get_easter_related(str(self.date))
+
+    def christmas_and_easter_related_feasts(self) -> QuerySet:
+        return Feast.objects.get_christmas_and_easter_related(str(self.date))
+
+    def christmas_and_easter_related_feasts_and_saints(self) -> dict:
+        return {
+            "saints":self.christmas_and_easter_related_saints(),
+            "feasts":self.christmas_and_easter_related_feasts(),
+        }
+    saints_and_feasts_of_the_day = christmas_and_easter_related_feasts_and_saints
 
 
 class RelatedHolidayOccurrences(HolidayOccurrences):

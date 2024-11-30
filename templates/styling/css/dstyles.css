@@ -17,6 +17,9 @@
 
 .nav li a{
     {% hstyle obl 'navigation' 'font-color' 'color:%s!important;' %}
+    {% hstyle obl 'navigation' 'font-family' 'font-family:%s!important;' %}
+    {% hstyle obl 'navigation' 'font-size' 'font-size:%s!important;' %}
+    {% hstyle obl 'navigation' 'font-weight' 'font-weight:%s!important;' %}
     {% hstyle obl 'navigation' 'text-shadow' 'text-shadow:%s!important;' %}
 }
 
@@ -25,7 +28,8 @@
 }
 
 body{
-    {% hstyle obl 'body' 'font-style' 'font-family:%s;' %}
+    {% hstyle obl 'body' 'font-style' 'font-style:%s;' %}
+    {% hstyle obl 'body' 'font-family' 'font-family:%s;' %}
     {% hstyle obl 'body' 'background-image' 'background:url(%s) %s %s;' 'image-repeat,image-color' %}
     {% hstyle obl 'body' 'background-width' 'background-size: %s %s;' 'background-height' %}
     {% hstyle obl 'body' 'background-attachment' 'background-attachment: %s;' %}
@@ -81,4 +85,28 @@ div.newsflash > *
 #header{
 	    {% hstyle obl 'header' 'background' 'background: url(%s) no-repeat; background-size:cover;' %}
 }
+
+#logo{
+    {% hstyle obl 'logo' 'text' 'background: none;/*%s*/' %}
+    {% hstyle obl 'logo' 'font-size' 'font-size:%s;' %}
+    {% hstyle obl 'logo' 'font-weight' 'font-weight:%s;' %}
+    {% hstyle obl 'logo' 'font-color' 'color:%s;' %}
+    {% hstyle obl 'logo' 'background-image' 'background: url(%s);' %}
+    {% hstyle obl 'logo' 'background-color-rgb' 'background: %s;' %}
+    {% hstyle obl 'logo' 'text-shadow' 'text-shadow:%s!important;' %}
+    {% hstyle obl 'logo' 'box-shadow' 'box-shadow:%s!important;' %}
+    {% hstyle obl 'logo' 'text-align' 'text-align:%s!important;' %}
+    {% hstyle obl 'logo' 'transition' 'transition:%s!important;' %}
+
+}
+
+#logo::before{
+    {% hstyle obl 'logo' 'text' 'content:"%s";' %}
+}
+
+#logo:hover{
+    {% hstyle obl 'logo' 'text-hover-color' 'color:%s;'%}
+    {% hstyle obl 'logo' 'hover-text-shadow' 'text-shadow:%s!important;' %}
+}
+
 {%endwith%}

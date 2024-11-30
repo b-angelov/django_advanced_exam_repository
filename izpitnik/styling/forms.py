@@ -11,7 +11,7 @@ class SettingsChangelistForm(forms.ModelForm):
     def __init__(self, *args,**kwargs):
         super().__init__(*args, **kwargs)
         value_field = self.fields['value']
-        value_field.widget = StylingWidget(mode=self.initial['type'])
+        value_field.widget = StylingWidget(mode=self.initial.get('type','txt'))
 
     # def get_initial_for_field(self, field, field_name):
     #     initial = self.initial.get(field_name, field.initial)
