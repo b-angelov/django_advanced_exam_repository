@@ -1,9 +1,12 @@
+from datetime import datetime
+
 from django.core.validators import MaxValueValidator
 from django.db import models
 from django.db.models import QuerySet
 from django.utils.translation import gettext_lazy as _
 
 from izpitnik.orth_calendar.managers import HolidaysRelatedManager
+from izpitnik.orth_calendar.utils.calculus import Calculus
 from izpitnik.orth_calendar.validators import RangeValidator
 
 
@@ -113,29 +116,34 @@ class HolidayOccurrences(models.Model):
     def __str__(self):
         return f"{self.date.strftime("%Y. %m. %d.")} - {self.CalendarChoices._value2member_map_[self.calendar].name}"
 
+
     def christmas_related_saints(self) -> QuerySet:
-        return Saint.objects.get_christmas_related(str(self.date))
+        return Saint.objects.get_christmas_related(str(self.date), calendar=self.calendar)
 
     def easter_related_saints(self) -> QuerySet:
-        return Saint.objects.get_easter_related(str(self.date))
+        return Saint.objects.get_easter_related(str(self.date), calendar=self.calendar)
 
     def christmas_and_easter_related_saints(self) -> QuerySet:
-        return Saint.objects.get_christmas_and_easter_related(str(self.date))
+        return Saint.objects.get_christmas_and_easter_related(str(self.date), calendar=self.calendar)
 
     def christmas_related_feasts(self) -> QuerySet:
-        return Feast.objects.get_christmas_related(str(self.date))
+        return Feast.objects.get_christmas_related(str(self.date), calendar=self.calendar)
 
     def easter_related_feasts(self) -> QuerySet:
-        return Feast.objects.get_easter_related(str(self.date))
+        return Feast.objects.get_easter_related(str(self.date), calendar=self.calendar)
 
     def christmas_and_easter_related_feasts(self) -> QuerySet:
-        return Feast.objects.get_christmas_and_easter_related(str(self.date))
+        return Feast.objects.get_christmas_and_easter_related(str(self.date), calendar=self.calendar)
 
     def christmas_and_easter_related_feasts_and_saints(self) -> dict:
         return {
             "saints":self.christmas_and_easter_related_saints(),
             "feasts":self.christmas_and_easter_related_feasts(),
         }
+
+    def get_distance(self):
+        return Calculus(date=datetime.strptime(self.date,'%Y-%m-%d').date(), calendar=self.calendar).get_distance()
+
     saints_and_feasts_of_the_day = christmas_and_easter_related_feasts_and_saints
 
 

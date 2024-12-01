@@ -1,7 +1,7 @@
 from django.urls import path, include
 
 from izpitnik.orth_calendar.views import SingleSaintView, SaintsListView, FeastListView, SingleFeastView, \
-    SingleHolidayView, HolidayListView
+    SingleHolidayView, HolidayListView, SingleHolidayByDateView
 
 urlpatterns = [
     path('saints/',
@@ -24,6 +24,7 @@ urlpatterns = [
          include([
              path('', HolidayListView.as_view(), name='holidays-view'),
              path('<int:pk>/', SingleHolidayView.as_view(), name='single-holiday-view'),
+             path('<slug:date_slug>/', SingleHolidayByDateView.as_view(), name='single-holiday-view'),
 
          ])
     ),
