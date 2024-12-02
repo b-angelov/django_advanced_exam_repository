@@ -14,3 +14,12 @@ class DynamicStyleView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset.filter(section_style=self.kwargs['style_name'])
+
+class DynamicJSView(DynamicStyleView):
+
+    template_name = 'styling/js/dstyle.js'
+    content_type = 'text/javascript'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(section_style=self.kwargs['style_name'])

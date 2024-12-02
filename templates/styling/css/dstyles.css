@@ -38,6 +38,7 @@ body{
     {% hstyle obl 'body' 'font-weight' 'font-weight: %s;' %}
     {% hstyle obl 'body' 'font-size' 'font-size: %s;' %}
     {% hstyle obl 'body' 'font-color' 'color: %s;' %}
+    {% hstyle obl 'body' 'text-shadow' 'text-shadow:%s!important;' %}
 }
 
 .blog .items-leading > div,
@@ -55,14 +56,15 @@ body{
 #component-container > .component-wrapper > * > * > *,
  #component-container .login-container ul li,
  #content .message-container,
-div.newsflash > *
+div.newsflash > *, #component
 {
     {% hstyle obl 'component-container' 'opacity' 'opacity: 0.%s;' %}
     {% hstyle obl 'component-container' 'opacity' 'filter: alpha(opacity=%s);' %}
     {% hstyle obl 'component-container' 'border-radius' 'border-radius: %s;' %}
-    {% hstyle obl 'component-container' 'background-color' 'background-color: rbga(%s,%s);' 'background-opacity' %}
+    {% hstyle obl 'component-container' 'background-color' 'background-color: rbg(%s,%s);' 'background-opacity' %}
     {% hstyle obl 'component-container' 'border-width' 'border-width: %s;' %}
     {% hstyle obl 'component-container' 'padding' 'padding: %s;' %}
+
 
 }
 
@@ -107,6 +109,27 @@ div.newsflash > *
 #logo:hover{
     {% hstyle obl 'logo' 'text-hover-color' 'color:%s;'%}
     {% hstyle obl 'logo' 'hover-text-shadow' 'text-shadow:%s!important;' %}
+}
+
+title{
+    {% hstyle obl 'title' 'title' '/*%s*/' %}
+}
+
+title::before{
+    {% hstyle obl 'title' 'title' 'content:"%s";' %}
+}
+
+#component, #content .component-wrapper{
+    {% hstyle obl 'body' 'font-color' 'color: %s;' %}
+    {% hstyle obl 'main' 'font-size' 'font-size: %s;' %}
+
+}
+#content{
+    {% hstyle obl 'content' 'font-size' 'font-size: %s;' %}
+}
+
+#component{
+    {% hstyle obl 'component-container' 'background-color' 'background-color: rgb( %s,%s );' 'background-opacity' %}
 }
 
 {%endwith%}
