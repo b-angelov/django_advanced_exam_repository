@@ -35,6 +35,13 @@
         height: 100%;
         content: '          ';
     }
+
+    #logo{
+        margin-left: 22vw;
+    }
+    #logo::before{
+        font-size: 0.9em !important;
+    }
 }
 
 
@@ -49,6 +56,25 @@
     #header{
         height: 100%;
         background-size: cover;
+    }
+
+    #component_right{
+        margin-left: 2%;
+    }
+
+    #component{
+        border-radius: 17% 2% 0 0;
+        padding-top: 4vh;
+        margin-top: 1vh;
+    }
+
+}
+
+@media screen and (width < 900px){
+
+    #component_right{
+        margin-left: 8%;
+        position: relative;
     }
 
 }

@@ -1,14 +1,18 @@
 {% load static %}
 {% load navigation_render %}
+
 <!DOCTYPE html>
 <html lang="bg-bg">
 <head>
-    <title>Рождественник</title>
+    <title></title>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" href="{% url 'dynamic-style' 'marble' %}">
+    <link rel="stylesheet" href="{% url 'dynamic-css' 'marble' %}">
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
     {% include "common/external.html" %}
     {% block head_content %}
     {% endblock %}
+    <script type="text/javascript" src="{% url 'dynamic-js' 'marble' %}"></script>
+    <script type="module" src="{% static 'js/main.js' %}" ></script>
 </head>
 
 <body>
@@ -143,7 +147,7 @@
                         {% endblock %}
                     </div>
 
-                    <div class="no-component-background  disable-preview">
+                    <div id="component" class="no-component-background  disable-preview">
                         <div class="message-container  disable-preview">
                             {% block message_content %}
                             	

@@ -1,5 +1,10 @@
 {% extends 'common/base.html' %}
+{% load static %}
+
+{% block head_content %}
+    <script type="module" src="{% static 'js/date_feast_and_saints.js' %}" ></script>
+{% endblock %}
 
 {% block main_content %}
-	Welcome!
+
 {% endblock %}

@@ -7,6 +7,7 @@
 
 #website{
     {% hstyle obl 'website' 'background-color' 'background-color:%s;' %}
+    {% hstyle obl 'website' 'background-image' 'background-image:url(%s); background-attachment: local, fixed; background-repeat: no-repeat; background-position:center; background-size:100vw 100vw;' %}
 }
 
 #user3{
@@ -16,6 +17,9 @@
 
 .nav li a{
     {% hstyle obl 'navigation' 'font-color' 'color:%s!important;' %}
+    {% hstyle obl 'navigation' 'font-family' 'font-family:%s!important;' %}
+    {% hstyle obl 'navigation' 'font-size' 'font-size:%s!important;' %}
+    {% hstyle obl 'navigation' 'font-weight' 'font-weight:%s!important;' %}
     {% hstyle obl 'navigation' 'text-shadow' 'text-shadow:%s!important;' %}
 }
 
@@ -24,7 +28,8 @@
 }
 
 body{
-    {% hstyle obl 'body' 'font-style' 'font-family:%s;' %}
+    {% hstyle obl 'body' 'font-style' 'font-style:%s;' %}
+    {% hstyle obl 'body' 'font-family' 'font-family:%s;' %}
     {% hstyle obl 'body' 'background-image' 'background:url(%s) %s %s;' 'image-repeat,image-color' %}
     {% hstyle obl 'body' 'background-width' 'background-size: %s %s;' 'background-height' %}
     {% hstyle obl 'body' 'background-attachment' 'background-attachment: %s;' %}
@@ -33,6 +38,7 @@ body{
     {% hstyle obl 'body' 'font-weight' 'font-weight: %s;' %}
     {% hstyle obl 'body' 'font-size' 'font-size: %s;' %}
     {% hstyle obl 'body' 'font-color' 'color: %s;' %}
+    {% hstyle obl 'body' 'text-shadow' 'text-shadow:%s!important;' %}
 }
 
 .blog .items-leading > div,
@@ -50,14 +56,15 @@ body{
 #component-container > .component-wrapper > * > * > *,
  #component-container .login-container ul li,
  #content .message-container,
-div.newsflash > *
+div.newsflash > *, #component
 {
     {% hstyle obl 'component-container' 'opacity' 'opacity: 0.%s;' %}
     {% hstyle obl 'component-container' 'opacity' 'filter: alpha(opacity=%s);' %}
     {% hstyle obl 'component-container' 'border-radius' 'border-radius: %s;' %}
-    {% hstyle obl 'component-container' 'background-color' 'background-color: rbga(%s,%s);' 'background-opacity' %}
+    {% hstyle obl 'component-container' 'background-color' 'background-color: rbg(%s,%s);' 'background-opacity' %}
     {% hstyle obl 'component-container' 'border-width' 'border-width: %s;' %}
     {% hstyle obl 'component-container' 'padding' 'padding: %s;' %}
+
 
 }
 
@@ -80,4 +87,49 @@ div.newsflash > *
 #header{
 	    {% hstyle obl 'header' 'background' 'background: url(%s) no-repeat; background-size:cover;' %}
 }
+
+#logo{
+    {% hstyle obl 'logo' 'text' 'background: none;/*%s*/' %}
+    {% hstyle obl 'logo' 'font-size' 'font-size:%s;' %}
+    {% hstyle obl 'logo' 'font-weight' 'font-weight:%s;' %}
+    {% hstyle obl 'logo' 'font-color' 'color:%s;' %}
+    {% hstyle obl 'logo' 'background-image' 'background: url(%s);' %}
+    {% hstyle obl 'logo' 'background-color-rgb' 'background: %s;' %}
+    {% hstyle obl 'logo' 'text-shadow' 'text-shadow:%s!important;' %}
+    {% hstyle obl 'logo' 'box-shadow' 'box-shadow:%s!important;' %}
+    {% hstyle obl 'logo' 'text-align' 'text-align:%s!important;' %}
+    {% hstyle obl 'logo' 'transition' 'transition:%s!important;' %}
+
+}
+
+#logo::before{
+    {% hstyle obl 'logo' 'text' 'content:"%s";' %}
+}
+
+#logo:hover{
+    {% hstyle obl 'logo' 'text-hover-color' 'color:%s;'%}
+    {% hstyle obl 'logo' 'hover-text-shadow' 'text-shadow:%s!important;' %}
+}
+
+title{
+    {% hstyle obl 'title' 'title' '/*%s*/' %}
+}
+
+title::before{
+    {% hstyle obl 'title' 'title' 'content:"%s";' %}
+}
+
+#component, #content .component-wrapper{
+    {% hstyle obl 'body' 'font-color' 'color: %s;' %}
+    {% hstyle obl 'main' 'font-size' 'font-size: %s;' %}
+
+}
+#content{
+    {% hstyle obl 'content' 'font-size' 'font-size: %s;' %}
+}
+
+#component{
+    {% hstyle obl 'component-container' 'background-color' 'background-color: rgb( %s,%s );' 'background-opacity' %}
+}
+
 {%endwith%}

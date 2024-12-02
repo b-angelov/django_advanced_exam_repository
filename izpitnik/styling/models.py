@@ -43,7 +43,7 @@ class Setting(models.Model):
         verbose_name=_("name"),
     )
     value = models.CharField(
-        max_length=50,
+        max_length=500,
         null=True,
         blank=True,
         default="",
@@ -63,7 +63,7 @@ class Setting(models.Model):
         verbose_name=_("type"),
     )
     enabled = models.BooleanField(
-        default=True,
+        default=False,
         verbose_name = _("enabled"),
     )
     section = models.ForeignKey(
