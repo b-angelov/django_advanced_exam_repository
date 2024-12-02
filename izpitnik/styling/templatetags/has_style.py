@@ -1,4 +1,5 @@
 from django import template
+from django.utils.safestring import mark_safe
 
 register = template.Library()
 
@@ -13,4 +14,4 @@ def hstyle(objects, section, name, pattern="%s", params=None):
         if settings and settings.value:
             params = [hstyle(objects, section, param) for param in params]
             result = pattern % (settings.value if settings.value else '', *params)
-    return result
+    return mark_safe(result)

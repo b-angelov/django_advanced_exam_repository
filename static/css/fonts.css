@@ -41,3 +41,10 @@ font-size:5pt !important;
     font-weight:normal;
     font-size: 1em;
 }
+
+@font-face{
+    font-family: Z003;
+    src:url(../fonts/Z003-MediumItalic.ttf);
+    font-weight: 600;
+    font-size: 1.3em;
+}

@@ -9,9 +9,7 @@ from izpitnik.orth_calendar.utils.calculus import Calculus
 
 # Register your models here.
 
-@admin.register(HolidayOccurrences)
-class HolidayOccurrencesAdmin(unfold.admin.ModelAdmin):
-    form = HolidayOccurrencesAdminForm
+class HolidayOccurrencesAdminMixin:
 
     def save_model(self, request, obj, form, change):
         feasts = form.cleaned_data["feast"]
@@ -23,7 +21,6 @@ class HolidayOccurrencesAdmin(unfold.admin.ModelAdmin):
         obj.feast.set(feasts)
         obj.saint.set(saints)
 
-
     @staticmethod
     def __get_distance(field, method, cleaned_data):
         distance_data = cleaned_data.get(field, None)
@@ -31,19 +28,31 @@ class HolidayOccurrencesAdmin(unfold.admin.ModelAdmin):
             distance_data = method()
         return distance_data
 
+@admin.register(HolidayOccurrences)
+class HolidayOccurrencesAdmin(HolidayOccurrencesAdminMixin, unfold.admin.ModelAdmin):
+    form = HolidayOccurrencesAdminForm
+    search_fields = ['date','saint__name','feast__name']
+    list_filter = ['date']
+    ordering = ['-pk','date']
+
+
 @admin.register(RelatedHolidayOccurrences)
-class HolidayOccurencesRelatedAdmin(unfold.admin.ModelAdmin):
+class HolidayOccurencesRelatedAdmin(HolidayOccurrencesAdminMixin, unfold.admin.ModelAdmin):
 
     form = RelatedHolidayOccurrencesAdminForm
+    list_filter = ['date']
+    search_fields = ['date', 'saint__name', 'feast__name']
 
 
 
 @admin.register(Feast)
 class FeastAdmin(unfold.admin.ModelAdmin):
-    pass
+    search_fields = ['name','occurrences__date']
+    list_filter = ['occurrences__date']
 
 @admin.register(Saint)
 class SaintAdmin(unfold.admin.ModelAdmin):
-    pass
+    search_fields = ['name','occurrences__date']
+    list_filter = ['occurrences__date']
 
 

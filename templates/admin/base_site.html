@@ -2,4 +2,8 @@
 
 {% load static %}
 
-{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static 'css/admin/override.css' %}" />{% endblock %}
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin/override.css' %}" />
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+{% endblock %}

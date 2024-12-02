@@ -37,6 +37,7 @@ class EasterCalculus:
         elif mode == "AnonymousGregorian".lower():
             self.date = self.AnonymousGregorian(year, "original")
         elif mode == "AnonymousGregorianOptimized".lower():
+            print('here')
             self.date = self.AnonymousGregorian(year)
 
         self.month = self.date[0]

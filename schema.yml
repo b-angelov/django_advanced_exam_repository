@@ -1,0 +1,83 @@
+openapi: 3.0.3
+info:
+  title: Izpitnik
+  version: 1.0.0
+  description: My exam project
+paths:
+  /orth_calendar/saints/:
+    get:
+      operationId: orth_calendar_saints_retrieve
+      tags:
+      - orth_calendar
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Saints'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Saints'
+          description: ''
+  /orth_calendar/saints/{id}/:
+    get:
+      operationId: orth_calendar_saints_retrieve_2
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: query
+        name: name
+        schema:
+          type: string
+        description: Saint name
+      tags:
+      - orth_calendar
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Saints'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Saints'
+          description: ''
+components:
+  schemas:
+    Saints:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+      required:
+      - id
+      - name
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

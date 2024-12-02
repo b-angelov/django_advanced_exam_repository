@@ -233,9 +233,10 @@ ul#menu .deeper:hover{
 
 #logo{
 	left: 0;
-	margin-left: 30vw;
+	margin-left: 33vw;
 	position: relative;
-	max-width:30vw;
+	max-width:20%;
+	min-width:10%;
 	max-height: 15vh;
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -312,5 +313,38 @@ body{
 	bottom:17px;
 }
 
+#component{
+	border: none;
+	max-height: 100%;
+	min-height: 0px;
+	margin: 0 27% 0 23% !important;
+	display: inline-flex;
+	text-align: center;
+	flex-direction: column;
+	width: 100%;
+	max-width: 45vw;
+	min-width: 20vw;
+	padding-top: 10vh;
+	border-radius:70%/15% 15% 0% 0%;
+	top: -6vh;
+}
+
+#component .component-wrapper{
+	background:none;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	border: none;
+}
+
+#component .component-wrapper{
+	/*display:block;*/
+}
+
+#component_right{
+	/*margin-left: 10%;*/
+	/*position: relative;*/
+	width:100%;
+}
 
 
