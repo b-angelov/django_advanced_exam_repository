@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-26 12:38+0200\n"
+"POT-Creation-Date: 2024-12-03 15:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,13 +30,13 @@ msgstr "акаунти"
 msgid "common"
 msgstr "общи"
 
-#: izpitnik/navigation/admin.py:31 izpitnik/navigation/models.py:33
+#: izpitnik/navigation/admin.py:32 izpitnik/navigation/models.py:33
 msgid "menu"
 msgstr "меню"
 
-#: izpitnik/navigation/admin.py:43 izpitnik/navigation/forms.py:12
+#: izpitnik/navigation/admin.py:44 izpitnik/navigation/forms.py:12
 #: izpitnik/navigation/models.py:21 izpitnik/navigation/models.py:135
-#: izpitnik/orth_calendar/models.py:20 izpitnik/orth_calendar/models.py:38
+#: izpitnik/orth_calendar/models.py:25 izpitnik/orth_calendar/models.py:45
 #: izpitnik/styling/models.py:43
 #, fuzzy
 #| msgid "item name"
@@ -103,85 +103,84 @@ msgstr "православен календар"
 msgid "orthodox calendars"
 msgstr "православни календари"
 
-#: izpitnik/orth_calendar/forms.py:20
+#: izpitnik/orth_calendar/forms.py:24
 msgid "Add comma separated feast list here:"
 msgstr "Добави списък на празниците, разделен със запетая:"
 
-#: izpitnik/orth_calendar/forms.py:22 izpitnik/orth_calendar/models.py:31
-#: izpitnik/orth_calendar/models.py:93
+#: izpitnik/orth_calendar/forms.py:26 izpitnik/orth_calendar/models.py:38
+#: izpitnik/orth_calendar/models.py:104
 msgid "feast"
 msgstr "празник"
 
-#: izpitnik/orth_calendar/forms.py:27
+#: izpitnik/orth_calendar/forms.py:31
 msgid "Add comma separated saints list here:"
 msgstr "Добави списък на светците, разделен със запетая:"
 
-#: izpitnik/orth_calendar/forms.py:29 izpitnik/orth_calendar/models.py:13
-#: izpitnik/orth_calendar/models.py:44 izpitnik/orth_calendar/models.py:100
+#: izpitnik/orth_calendar/forms.py:33 izpitnik/orth_calendar/models.py:18
+#: izpitnik/orth_calendar/models.py:51 izpitnik/orth_calendar/models.py:112
 msgid "saint"
 msgstr "светец"
 
-#: izpitnik/orth_calendar/models.py:14
+#: izpitnik/orth_calendar/models.py:19
 msgid "saints"
 msgstr "светци"
 
-#: izpitnik/orth_calendar/models.py:32
+#: izpitnik/orth_calendar/models.py:39
 msgid "feasts"
 msgstr "празници"
 
-#: izpitnik/orth_calendar/models.py:54
+#: izpitnik/orth_calendar/models.py:65
 msgid "Julian in gregorian"
 msgstr "Юлиански в Григориански"
 
-#: izpitnik/orth_calendar/models.py:55
+#: izpitnik/orth_calendar/models.py:66
 msgid "Julian"
 msgstr "Юлиански"
 
-#: izpitnik/orth_calendar/models.py:56
+#: izpitnik/orth_calendar/models.py:67
 msgid "Gregorian"
 msgstr "Григориански"
 
-#: izpitnik/orth_calendar/models.py:59
+#: izpitnik/orth_calendar/models.py:70
 msgid "holiday occurrence"
 msgstr "проявление на празника"
 
-#: izpitnik/orth_calendar/models.py:60
+#: izpitnik/orth_calendar/models.py:71
 msgid "holiday occurrences"
 msgstr "проявления на празника"
 
-#: izpitnik/orth_calendar/models.py:64
+#: izpitnik/orth_calendar/models.py:75
 msgid "date"
 msgstr "дата"
 
-#: izpitnik/orth_calendar/models.py:72
+#: izpitnik/orth_calendar/models.py:83
 msgid "calendar"
 msgstr "календар"
 
-#: izpitnik/orth_calendar/models.py:79
+#: izpitnik/orth_calendar/models.py:90
 msgid "easter distance"
 msgstr "отстояние от Велик Ден"
 
-#: izpitnik/orth_calendar/models.py:86
+#: izpitnik/orth_calendar/models.py:97
 msgid "christmas distance"
 msgstr "отстояние от Рождество Христово"
 
-#: izpitnik/orth_calendar/models.py:111
+#: izpitnik/orth_calendar/models.py:154
 #, fuzzy
 #| msgid "holiday occurrence"
 msgid "related holiday occurrence"
 msgstr "свързано проявление на празника"
 
-#: izpitnik/orth_calendar/models.py:112
-#, fuzzy
+#: izpitnik/orth_calendar/models.py:155
 #| msgid "holiday occurrences"
 msgid "related holiday occurrences"
 msgstr "свързани проявления на празника"
 
-#: izpitnik/settings.py:131
+#: izpitnik/settings.py:162
 msgid "English"
 msgstr "Английски"
 
-#: izpitnik/settings.py:132
+#: izpitnik/settings.py:163
 msgid "Bulgarian"
 msgstr "Български"
 
@@ -238,6 +237,11 @@ msgstr "настройка"
 #: izpitnik/styling/models.py:81
 msgid "settings"
 msgstr "настройки"
+
+#: templates/common/index.html:11
+#| msgid "orthodox calendar"
+msgid "Current calendar:"
+msgstr "Календарен стил:"
 
 #~ msgid "some other"
 #~ msgstr "още други"

@@ -324,9 +324,9 @@ body{
 	width: 100%;
 	max-width: 45vw;
 	min-width: 20vw;
-	padding-top: 10vh;
-	border-radius:70%/15% 15% 0% 0%;
-	top: -6vh;
+	padding-top: 5vh;
+	border-radius:90%/40% 40% 0% 0%;
+	top: -4vh;
 }
 
 #component .component-wrapper{

@@ -139,7 +139,14 @@ class HolidayListView(ListAPIView):
 class SingleHolidayView(RetrieveAPIView):
 
     get_queryset = HolidayListView.get_queryset
-    get_serializer_class = HolidayListView.get_serializer_class
+
+    def get_serializer_class(self):
+        serializer = switch_serializer(
+            get_v(self.request.GET.get('related')),
+            get_v(self.request.GET.get('related')),
+            (HolidayOccurrencesSerializer,None,None,HolidayByDateSerializer)
+        )
+        return serializer
 
 @extend_schema(
     responses={200: SaintsSerializer, 400: SaintsSerializer},

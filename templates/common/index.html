@@ -1,10 +1,13 @@
 {% extends 'common/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block head_content %}
-    <script type="module" src="{% static 'js/date_feast_and_saints.js' %}" ></script>
+    <script type="module" src="{% static 'js/orth_calendar/date_feast_and_saints.js' %}" ></script>
+    <script type="module" src="{% static 'js/orth_calendar/calendar_fetchery.js' %}" ></script>
 {% endblock %}
 
 {% block main_content %}
+    <div id="calendar"><div class="saint"><div class="calendar">{% trans 'Current calendar:' %}</div></div></div>
 
 {% endblock %}
