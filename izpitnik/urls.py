@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('izpitnik.common.urls')),
     path('navigation/', include('izpitnik.navigation.urls')),
     path('dstyles/', include('izpitnik.styling.urls')),
+    path('auth/', include('izpitnik.accounts.urls')),
     path('orth_calendar/', include('izpitnik.orth_calendar.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     # Optional UI:

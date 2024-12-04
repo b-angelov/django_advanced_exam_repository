@@ -150,7 +150,11 @@
                     <div id="component" class="no-component-background  disable-preview">
                         <div class="message-container  disable-preview">
                             {% block message_content %}
-                            	
+                                {% for message in messages %}
+                                    <div>
+                                	{{ message }}
+                                    </div>
+                                {% endfor %}
                             {% endblock %}
                         </div>
 

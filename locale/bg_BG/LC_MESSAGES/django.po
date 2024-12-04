@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-03 15:41+0200\n"
+"POT-Creation-Date: 2024-12-05 00:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,16 @@ msgstr "акаунт"
 msgid "accounts"
 msgstr "акаунти"
 
+#: izpitnik/accounts/views.py:21
+#, fuzzy
+#| msgid "You have successfully logged out!"
+msgid "You have successfully logged in!"
+msgstr "Вписахте се успешно!"
+
+#: izpitnik/accounts/views.py:34 templates/accounts/logout.html:11
+msgid "You have successfully logged out!"
+msgstr "Излязохте успешно!"
+
 #: izpitnik/common/apps.py:7 izpitnik/common/apps.py:8
 msgid "common"
 msgstr "общи"
@@ -35,7 +45,7 @@ msgid "menu"
 msgstr "меню"
 
 #: izpitnik/navigation/admin.py:44 izpitnik/navigation/forms.py:12
-#: izpitnik/navigation/models.py:21 izpitnik/navigation/models.py:135
+#: izpitnik/navigation/models.py:21 izpitnik/navigation/models.py:155
 #: izpitnik/orth_calendar/models.py:25 izpitnik/orth_calendar/models.py:45
 #: izpitnik/styling/models.py:43
 #, fuzzy
@@ -43,15 +53,15 @@ msgstr "меню"
 msgid "name"
 msgstr "име"
 
-#: izpitnik/navigation/apps.py:8 izpitnik/navigation/models.py:113
+#: izpitnik/navigation/apps.py:8 izpitnik/navigation/models.py:133
 msgid "navigation"
 msgstr "навигация"
 
-#: izpitnik/navigation/apps.py:9 izpitnik/navigation/models.py:114
+#: izpitnik/navigation/apps.py:9 izpitnik/navigation/models.py:134
 msgid "navigations"
 msgstr "навигации"
 
-#: izpitnik/navigation/forms.py:17 izpitnik/navigation/models.py:142
+#: izpitnik/navigation/forms.py:17 izpitnik/navigation/models.py:162
 #, fuzzy
 #| msgid "language"
 msgid "language code"
@@ -81,7 +91,7 @@ msgstr "вътрешен URL"
 msgid "parent ID"
 msgstr "родителско ID"
 
-#: izpitnik/navigation/models.py:93 izpitnik/navigation/models.py:146
+#: izpitnik/navigation/models.py:93 izpitnik/navigation/models.py:166
 msgid "language"
 msgstr "език"
 
@@ -89,7 +99,7 @@ msgstr "език"
 msgid "order"
 msgstr "подредба"
 
-#: izpitnik/navigation/models.py:147
+#: izpitnik/navigation/models.py:167
 #, fuzzy
 #| msgid "language"
 msgid "languages"
@@ -172,15 +182,14 @@ msgid "related holiday occurrence"
 msgstr "свързано проявление на празника"
 
 #: izpitnik/orth_calendar/models.py:155
-#| msgid "holiday occurrences"
 msgid "related holiday occurrences"
 msgstr "свързани проявления на празника"
 
-#: izpitnik/settings.py:162
+#: izpitnik/settings.py:163
 msgid "English"
 msgstr "Английски"
 
-#: izpitnik/settings.py:163
+#: izpitnik/settings.py:164
 msgid "Bulgarian"
 msgstr "Български"
 
@@ -238,8 +247,15 @@ msgstr "настройка"
 msgid "settings"
 msgstr "настройки"
 
+#: templates/accounts/login.html:14
+msgid "login"
+msgstr "влизане"
+
+#: templates/accounts/register.html:10
+msgid "register"
+msgstr "регистриране"
+
 #: templates/common/index.html:11
-#| msgid "orthodox calendar"
 msgid "Current calendar:"
 msgstr "Календарен стил:"
 

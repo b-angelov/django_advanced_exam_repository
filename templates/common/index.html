@@ -9,5 +9,7 @@
 
 {% block main_content %}
     <div id="calendar"><div class="saint"><div class="calendar">{% trans 'Current calendar:' %}</div></div></div>
-
+    {% if user.is_authenticated %}
+        <form action="/auth/logout/" id="logout-form" method="post" style="visibility: hidden;">{% csrf_token %}</form>
+    {% endif %} 
 {% endblock %}

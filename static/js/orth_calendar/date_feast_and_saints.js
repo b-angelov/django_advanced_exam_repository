@@ -20,7 +20,6 @@ function htmlPatternParse(element, data, pattern, override_pattern =true){
         for (const ent of entry) {
             const qname = patt.querySelector(`.${name}`)
             let el;
-            console.log(`.${name}`,qname)
             if (qname){
                 el = qname;
             }else if(override_pattern){

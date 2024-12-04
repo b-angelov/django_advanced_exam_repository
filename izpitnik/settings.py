@@ -89,6 +89,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
+    'izpitnik.common.middlewares.CommonErrorMiddleware',
 ]
 
 ROOT_URLCONF = 'izpitnik.urls'

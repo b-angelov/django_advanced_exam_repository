@@ -79,8 +79,10 @@ class RelatedHolidayOccurrencesAdminForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.initial.get('date')
-        self.fields['feast'].queryset = Feast.objects.filter(pk__in=self.__override_queryset('feast'))
-        self.fields['saint'].queryset = Saint.objects.filter(pk__in=self.__override_queryset('saint'))
+        if self.fields.get('feast'):
+            self.fields['feast'].queryset = Feast.objects.filter(pk__in=self.__override_queryset('feast'))
+        if self.fields.get('saint'):
+            self.fields['saint'].queryset = Saint.objects.filter(pk__in=self.__override_queryset('saint'))
 
 
     def get_initial_for_field(self, field, field_name):
@@ -93,9 +95,10 @@ class RelatedHolidayOccurrencesAdminForm(forms.ModelForm):
         initial = []
         obj = self._meta.model
         if field_name in ('saint', 'feast'):
-            date = self.initial.get('date') or self.get_initial_for_field(self.fields['date'], 'date')
+            date = self.initial.get('date') or self.get_initial_for_field(self.fields.get('date'), 'date')
             calendar = self.initial.get('calendar') or 'JIG'
-            distances = Calculus(date, calendar).get_distance()
+            print(calendar)
+            distances = Calculus(date, calendar=calendar).get_distance()
             initial = obj.objects.prefetch_related('saint', 'feast').filter(
                 Q(easter_distance=distances['easter']) | Q(christmas_distance=distances['christmas'] % 365))
             if field_name == 'saint':
