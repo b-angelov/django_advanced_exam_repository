@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-05 00:58+0200\n"
+"POT-Creation-Date: 2024-12-06 00:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -175,11 +175,11 @@ msgstr ""
 msgid "related holiday occurrences"
 msgstr ""
 
-#: izpitnik/settings.py:163
+#: izpitnik/settings.py:164
 msgid "English"
 msgstr ""
 
-#: izpitnik/settings.py:164
+#: izpitnik/settings.py:165
 msgid "Bulgarian"
 msgstr ""
 
@@ -239,6 +239,18 @@ msgstr ""
 msgid "register"
 msgstr ""
 
-#: templates/common/index.html:11
+#: templates/common/base.html:36
+msgid "you are logged in as: "
+msgstr ""
+
+#: templates/orth_calendar/calendar.html:6
 msgid "Current calendar:"
+msgstr ""
+
+#: templates/orth_calendar/calendar.html:9
+msgid "bulgarian orthodox church saints of this day:"
+msgstr ""
+
+#: templates/orth_calendar/calendar.html:12
+msgid "bulgarian orthodox church feasts of this day:"
 msgstr ""

@@ -1,15 +1,12 @@
 {% extends 'common/base.html' %}
-{% load i18n %}
 {% load static %}
 
 {% block head_content %}
     <script type="module" src="{% static 'js/orth_calendar/date_feast_and_saints.js' %}" ></script>
     <script type="module" src="{% static 'js/orth_calendar/calendar_fetchery.js' %}" ></script>
+    <link rel="stylesheet" href="{% static 'css/orth_calendar/calendar.css' %}">
 {% endblock %}
 
 {% block main_content %}
-    <div id="calendar"><div class="saint"><div class="calendar">{% trans 'Current calendar:' %}</div></div></div>
-    {% if user.is_authenticated %}
-        <form action="/auth/logout/" id="logout-form" method="post" style="visibility: hidden;">{% csrf_token %}</form>
-    {% endif %} 
+    {% include 'orth_calendar/calendar.html' %}
 {% endblock %}

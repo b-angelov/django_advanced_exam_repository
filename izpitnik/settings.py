@@ -50,6 +50,7 @@ MY_SETTINGS = [
     'colorfield',
     'izpitnik.styling.apps.StylingConfig',
     'izpitnik.orth_calendar.apps.OrthCalendarConfig',
+    'izpitnik.articles.apps.ArticlesConfig',
 ]
 
 INSTALLED_APPS = UNFOLD_SETTINGS + [

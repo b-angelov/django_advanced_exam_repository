@@ -97,7 +97,6 @@ class RelatedHolidayOccurrencesAdminForm(forms.ModelForm):
         if field_name in ('saint', 'feast'):
             date = self.initial.get('date') or self.get_initial_for_field(self.fields.get('date'), 'date')
             calendar = self.initial.get('calendar') or 'JIG'
-            print(calendar)
             distances = Calculus(date, calendar=calendar).get_distance()
             initial = obj.objects.prefetch_related('saint', 'feast').filter(
                 Q(easter_distance=distances['easter']) | Q(christmas_distance=distances['christmas'] % 365))

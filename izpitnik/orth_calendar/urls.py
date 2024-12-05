@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from izpitnik.orth_calendar.views import SingleSaintView, SaintsListView, FeastListView, SingleFeastView, \
+from izpitnik.orth_calendar.views.api_views import SingleSaintView, SaintsListView, FeastListView, SingleFeastView, \
     SingleHolidayView, HolidayListView, SingleHolidayByDateView
 
 urlpatterns = [

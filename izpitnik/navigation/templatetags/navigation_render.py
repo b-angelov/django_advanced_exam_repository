@@ -11,7 +11,6 @@ register = template.Library()
 def nav_render(template, slug, user):
     # items =  Navigation.objects.prefetch_related('children').filter(menu__slug=slug,language__icontains=get_language()).order_by("pk")
     menu,items = Menu.objects.filter(slug=slug).first().get_menu()
-    print(user.__dict__, user.is_authenticated)
     if not user.is_authenticated:
         items = items.filter(login_required=False)
     else:

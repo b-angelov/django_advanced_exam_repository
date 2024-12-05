@@ -2,12 +2,22 @@ import mainSectionToggle from "../utils/main_section_preview.js";
 import {get} from "./calendar_fetchery.js"
 
 let element = document.querySelector('#component .component-wrapper')
-const pattern = document.querySelector('#calendar') || null
+const pattern = document.querySelector('#calendar-main') || null
 if (pattern){
     element = pattern.parentElement
     pattern.remove()
 }
-window.addEventListener('load', todayFeastsAndSaints)
+
+const funcs = [
+    todayFeastsAndSaints,
+]
+
+
+window.addEventListener('load', ()=> {
+    for (const func of funcs){
+        (async (...params) => func(...params))();
+    }
+})
 
 
 function htmlPatternParse(element, data, pattern, override_pattern =true){
@@ -45,7 +55,7 @@ function loadDateFeastAndSaints(date){
         )
         htmlPatternParse(element,data,pattern,false)
     }
-    getDateObjects().then(r => mainSectionToggle())
+    getDateObjects().then(r => mainSectionToggle()).then(r => toggleDescription())
 }
 
 
@@ -53,5 +63,16 @@ function loadDateFeastAndSaints(date){
 function todayFeastsAndSaints(){
     const currentDate = new Date().toJSON().slice(0,10)
     loadDateFeastAndSaints(currentDate)
+}
+
+function toggleDescription(){
+    const description = document.querySelectorAll('#calendar-main .desc')
+    console.log(description)
+    for (const desc of description.values()){
+        console.log(desc)
+        if (!desc.previousElementSibling && !desc.nextElementSibling){
+            desc.style.visibility = 'hidden';
+        }
+    }
 }
 
