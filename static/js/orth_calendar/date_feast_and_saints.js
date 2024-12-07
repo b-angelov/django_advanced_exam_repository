@@ -43,7 +43,7 @@ function htmlPatternParse(element, data, pattern, override_pattern =true){
             el.appendChild(p)
         }
     }
-    element.appendChild(patt)
+    element.insertBefore(patt,element.firstChild)
 
 }
 

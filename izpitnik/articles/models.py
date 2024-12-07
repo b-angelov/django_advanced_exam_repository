@@ -19,6 +19,12 @@ class Article(models.Model):
         null=True
     )
 
+    image =models.ImageField(
+        null=True,
+        blank=True,
+        default='saint.webp'
+    )
+
     saint = models.ManyToManyField(
         to=Saint,
         blank=True
@@ -41,4 +47,35 @@ class Article(models.Model):
         on_delete=models.CASCADE
     )
 
+    def __str__(self):
+        return self.title
 
+class Comment(models.Model):
+
+    title = models.CharField(
+        blank=True,
+        null=True,
+        max_length=100
+    )
+
+    content = models.TextField(
+        blank=False,
+        null=True,
+    )
+
+    author = models.ForeignKey(
+        to=User,
+        on_delete=models.CASCADE,
+        null=False,
+        blank=True,
+    )
+
+    article = models.ForeignKey(
+        to = Article,
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return self.title

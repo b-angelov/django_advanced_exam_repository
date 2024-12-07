@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 00:22+0200\n"
+"POT-Creation-Date: 2024-12-08 01:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -167,11 +167,11 @@ msgstr ""
 msgid "christmas distance"
 msgstr ""
 
-#: izpitnik/orth_calendar/models.py:154
+#: izpitnik/orth_calendar/models.py:174
 msgid "related holiday occurrence"
 msgstr ""
 
-#: izpitnik/orth_calendar/models.py:155
+#: izpitnik/orth_calendar/models.py:175
 msgid "related holiday occurrences"
 msgstr ""
 
@@ -237,6 +237,22 @@ msgstr ""
 
 #: templates/accounts/register.html:10
 msgid "register"
+msgstr ""
+
+#: templates/articles/render_articles_list.html:3
+msgid "tiled articles preview"
+msgstr ""
+
+#: templates/articles/render_articles_list.html:20
+msgid "no tiles found"
+msgstr ""
+
+#: templates/articles/render_articles_list.html:23
+msgid "no tiles"
+msgstr ""
+
+#: templates/articles/render_articles_list.html:24
+msgid "no articles are added yet"
 msgstr ""
 
 #: templates/common/base.html:36

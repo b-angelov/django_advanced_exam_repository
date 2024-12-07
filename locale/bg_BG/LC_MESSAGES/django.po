@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 00:22+0200\n"
+"POT-Creation-Date: 2024-12-08 01:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -175,13 +175,13 @@ msgstr "отстояние от Велик Ден"
 msgid "christmas distance"
 msgstr "отстояние от Рождество Христово"
 
-#: izpitnik/orth_calendar/models.py:154
+#: izpitnik/orth_calendar/models.py:174
 #, fuzzy
 #| msgid "holiday occurrence"
 msgid "related holiday occurrence"
 msgstr "свързано проявление на празника"
 
-#: izpitnik/orth_calendar/models.py:155
+#: izpitnik/orth_calendar/models.py:175
 msgid "related holiday occurrences"
 msgstr "свързани проявления на празника"
 
@@ -254,6 +254,24 @@ msgstr "влизане"
 #: templates/accounts/register.html:10
 msgid "register"
 msgstr "регистриране"
+
+#: templates/articles/render_articles_list.html:3
+msgid "tiled articles preview"
+msgstr "преглед на картички от статиите"
+
+#: templates/articles/render_articles_list.html:20
+msgid "no tiles found"
+msgstr "няма добавени картички"
+
+#: templates/articles/render_articles_list.html:23
+#, fuzzy
+#| msgid "no tiles found"
+msgid "no tiles"
+msgstr "няма картички"
+
+#: templates/articles/render_articles_list.html:24
+msgid "no articles are added yet"
+msgstr "все още няма добавени статий"
 
 #: templates/common/base.html:36
 msgid "you are logged in as: "
