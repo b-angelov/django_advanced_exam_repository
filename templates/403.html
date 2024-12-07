@@ -1,0 +1,24 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block head_content %}
+
+	<link rel="stylesheet" href="{% static 'css/common/errors.css' %}">
+    <script>
+        setTimeout(() =>{
+            
+        const el = document.getElementById('error');
+        el.focus();
+        el.blur();
+            
+        },1000);
+    </script>
+
+{% endblock %}
+
+{% block message_content %}
+    <div id="error">
+        <div class="403 error-title">Error 403</div>
+        <div class="403 error-body">You have no permission to access this content!</div>
+    </div>
+{% endblock %}

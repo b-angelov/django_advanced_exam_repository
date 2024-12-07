@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 {% load navigation_render %}
 
@@ -29,9 +30,12 @@
                     <div id="logo">
 
                     </div>
-
                 </a>
-
+                <div class="user-name">
+                    {% if user.is_authenticated %}
+                        <span>{% translate 'you are logged in as: '|capfirst %}{{ user.username|capfirst }}</span>
+                    {% endif %}
+                </div>
             </div>
 
 
@@ -60,7 +64,7 @@
 
                         <td class="pill_m">
                             <div class="" id="use3">
-                                {% nav_render 'navigation/nav.html' 'main-menu' %}
+                                {% nav_render 'navigation/nav.html' 'main-menu' user %}
                                 {% block use3_content %}
                                 	
                                 {% endblock %}
@@ -142,6 +146,9 @@
 
                 <div id="component_right">
                     <div class="" id="above-component">
+                        {% if user.is_authenticated %}
+                            <form action="/auth/logout/" id="logout-form" method="post" style="visibility: hidden;">{% csrf_token %}</form>
+                        {% endif %} 
                         {% block over_main_content %}
                         	
                         {% endblock %}
@@ -150,7 +157,11 @@
                     <div id="component" class="no-component-background  disable-preview">
                         <div class="message-container  disable-preview">
                             {% block message_content %}
-                            	
+                                {% for message in messages %}
+                                    <div>
+                                	{{ message }}
+                                    </div>
+                                {% endfor %}
                             {% endblock %}
                         </div>
 

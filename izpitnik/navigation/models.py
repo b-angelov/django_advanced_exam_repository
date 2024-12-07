@@ -100,11 +100,31 @@ class Navigation(models.Model):
         verbose_name=_("order")
     )
 
+    login_required = models.BooleanField(
+        default=False,
+        null=False,
+        blank=False
+    )
+
+    anonymous_required = models.BooleanField(
+        default=False,
+        null=False,
+        blank=False
+    )
+
+    permission_required = models.ForeignKey(
+        to='auth.Permission',
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL
+    )
+
     def save(self, *args, **kwargs):
         if Language.objects.count() != len(LANGUAGES):
             for language in LANGUAGES:
                 Language.objects.get_or_create(name=text_in_locale(language[1],"en"),language_code=language[0])
         if not self.order:
+            super().save(*args,**kwargs)
             self.order = self.__class__.objects.filter(menu__name=self.menu.first(),language__name=self.language).count() + 1
         return super().save(*args,**kwargs)
 

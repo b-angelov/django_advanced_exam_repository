@@ -11,7 +11,6 @@ class StylingWidget(Widget):
 
     def render(self, *args, **kwargs):
         kwargs['renderer'] = renderers.TemplatesSetting()
-        print(args, kwargs)
         return super().render(*args,**kwargs)
 
     def get_context(self, name, value, attrs):

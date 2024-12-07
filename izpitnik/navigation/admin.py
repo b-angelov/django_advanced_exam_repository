@@ -15,7 +15,7 @@ class NavigationAdmin(unfold.admin.ModelAdmin):
 
     list_display = ['item_name','url_external','url_internal']
     fields = [
-        'menu','item_name',('url_internal','url_external'),'parent_id',"language","order"
+        'menu','item_name',('url_internal','url_external'),'parent_id',"language","order",'login_required','anonymous_required','permission_required'
     ]
     list_filter = [
         'menu',"menu__slug"

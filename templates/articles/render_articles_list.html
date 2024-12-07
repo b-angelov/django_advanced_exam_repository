@@ -1,0 +1,28 @@
+{% load static %}
+{% load i18n %}
+<p>{% translate 'tiled articles preview'|capfirst %}</p>
+<section class="article-list">
+        {% for article in articles %}
+        <article>
+                <figure>
+                    <a href="{{ article.article_url }}"><img src="{{ article.image.url }}" alt="{{ article.title }}"></a>
+                </figure>
+                <main>
+                    <a href="{{ article.article_url }}"><h2>{{ article.title|capfirst }}</h2></a>
+                    <a href="{{ article.article_url }}"><p>{{ article.content|truncatewords:5|capfirst }}</p></a>
+                </main>
+        </article>
+            
+        {% endfor %}
+        {% if not articles %}
+        <article>
+            <figure>
+                <img src="{% static 'images/articles/saint.webp' %}" alt="{% translate 'no tiles found' %}">
+            </figure>
+            <main>
+                <h2>{% translate 'no tiles'|capfirst %}{{ for_this_day }}</h2>
+                <p>{% translate 'no articles are added yet'|capfirst %}{{ for_this_day }}</p>
+            </main>
+        </article>
+        {% endif %}
+</section>

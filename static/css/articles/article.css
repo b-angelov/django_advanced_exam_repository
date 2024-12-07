@@ -1,0 +1,27 @@
+
+.single-article article{
+    display: flex;
+    flex-basis: fit-content;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.single-article article{
+    padding: 0.2em;
+}
+
+.single-article article figure{
+    max-width: 40%;
+    width: 40%;
+    height: auto;
+}
+
+.single-article article figure img{
+    width: 100%;
+    border-radius: 40% 40% 7% 7%;
+}

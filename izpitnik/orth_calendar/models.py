@@ -142,9 +142,29 @@ class HolidayOccurrences(models.Model):
         }
 
     def get_distance(self):
-        return Calculus(date=datetime.strptime(self.date,'%Y-%m-%d').date(), calendar=self.calendar).get_distance()
+        return Calculus(date=datetime.strptime(str(self.date),'%Y-%m-%d').date(), calendar=self.calendar).get_distance()
+
+    def object_by_date(self, date=None,calendar=None,committable=False):
+        object = self.__class__(date=date or self.date,calendar=calendar or self.calendar)
+        distance = object.get_distance()
+        related = object.saints_and_feasts_of_the_day()
+        object.easter_distance = distance['easter']
+        object.christmas_distance = distance['christmas']
+        if committable:
+            object.save()
+            object.feast.add(*related['feasts'])
+            object.saint.add(*related['saints'])
+            object.save()
+            return object
+        return MockedOccurrences(object,{'feast':related['feasts'],'saint':related['saints']})
 
     saints_and_feasts_of_the_day = christmas_and_easter_related_feasts_and_saints
+
+    def get_saint(self):
+        return self.saint or QuerySet()
+
+    def get_feast(self):
+        return self.feast or QuerySet()
 
 
 class RelatedHolidayOccurrences(HolidayOccurrences):
@@ -153,6 +173,24 @@ class RelatedHolidayOccurrences(HolidayOccurrences):
         proxy = True
         verbose_name = _("related holiday occurrence")
         verbose_name_plural = _("related holiday occurrences")
+
+class MockedOccurrences():
+
+    def __init__(self, instance, mocked_fields: dict):
+        self.obj = instance
+        for name,value in self.obj.__dict__.items():
+            setattr(self, name, value)
+        for name,value in mocked_fields.items():
+            setattr(self, name, mocked_fields[name])
+        self.mocked_fields = mocked_fields
+
+    def save(self):
+        self.obj.save()
+        for field,value in self.mocked_fields.items():
+            related_field = getattr(self.obj, field, None)
+            if related_field and hasattr(related_field, 'add'):
+                related_field.add(*value)
+        self.obj.save()
 
 
 

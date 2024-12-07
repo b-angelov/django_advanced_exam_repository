@@ -50,6 +50,7 @@ MY_SETTINGS = [
     'colorfield',
     'izpitnik.styling.apps.StylingConfig',
     'izpitnik.orth_calendar.apps.OrthCalendarConfig',
+    'izpitnik.articles.apps.ArticlesConfig',
 ]
 
 INSTALLED_APPS = UNFOLD_SETTINGS + [
@@ -89,6 +90,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
+    'izpitnik.common.middlewares.CommonErrorMiddleware',
 ]
 
 ROOT_URLCONF = 'izpitnik.urls'
@@ -185,7 +187,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = 'media/'
 
-MEDIA_ROOT = BASE_DIR / '/media/'
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 STATIC_URL = 'static/'
 
