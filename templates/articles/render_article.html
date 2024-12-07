@@ -1,0 +1,13 @@
+{% load markdown %}
+
+<section class="single-article">
+    <article>
+        <figure>
+            <img src="{{ article.image.url }}" alt="{{ article.title }}">
+        </figure>
+        <main>
+            <h2>{{ article.title|capfirst }}</h2>
+            <p>{{ article.content|capfirst|markdown }}</p>
+        </main>
+    </article>
+</section>

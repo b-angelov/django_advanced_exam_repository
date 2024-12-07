@@ -1,0 +1,14 @@
+{% load i18n %}
+
+
+<div id="calendar-main">
+    <div class="calendar">
+            {% trans 'Current calendar:' %}
+    </div>
+    <div class="saint">
+        <p class="desc">{% translate 'bulgarian orthodox church saints of this day:'|capfirst %}</p>
+    </div>
+    <div class="feast">
+        <p class="desc">{% translate 'bulgarian orthodox church feasts of this day:'|capfirst %}</p>
+    </div>
+</div>

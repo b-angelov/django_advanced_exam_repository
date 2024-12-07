@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-23 19:49+0200\n"
+"POT-Creation-Date: 2024-12-08 01:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,50 +17,256 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: izpitnik/navigation/models.py:16
+
+#: izpitnik/accounts/apps.py:8
+msgid "account"
+msgstr ""
+
+#: izpitnik/accounts/apps.py:9
+msgid "accounts"
+msgstr ""
+
+#: izpitnik/accounts/views.py:21
+msgid "You have successfully logged in!"
+msgstr ""
+
+#: izpitnik/accounts/views.py:34 templates/accounts/logout.html:11
+msgid "You have successfully logged out!"
+msgstr ""
+
+#: izpitnik/common/apps.py:7 izpitnik/common/apps.py:8
+msgid "common"
+msgstr ""
+
+#: izpitnik/navigation/admin.py:32 izpitnik/navigation/models.py:33
+msgid "menu"
+msgstr ""
+
+#: izpitnik/navigation/admin.py:44 izpitnik/navigation/forms.py:12
+#: izpitnik/navigation/models.py:21 izpitnik/navigation/models.py:155
+#: izpitnik/orth_calendar/models.py:25 izpitnik/orth_calendar/models.py:45
+#: izpitnik/styling/models.py:43
+msgid "name"
+msgstr ""
+
+#: izpitnik/navigation/apps.py:8 izpitnik/navigation/models.py:133
+msgid "navigation"
+msgstr ""
+
+#: izpitnik/navigation/apps.py:9 izpitnik/navigation/models.py:134
+msgid "navigations"
+msgstr ""
+
+#: izpitnik/navigation/forms.py:17 izpitnik/navigation/models.py:162
+msgid "language code"
+msgstr ""
+
+#: izpitnik/navigation/models.py:28
 msgid "slug"
 msgstr ""
 
-#: izpitnik/navigation/models.py:22
+#: izpitnik/navigation/models.py:34
+msgid "menus"
+msgstr ""
+
+#: izpitnik/navigation/models.py:62
 msgid "item name"
 msgstr ""
 
-#: izpitnik/navigation/models.py:27
+#: izpitnik/navigation/models.py:67
 msgid "external URL"
 msgstr ""
 
-#: izpitnik/navigation/models.py:32
+#: izpitnik/navigation/models.py:72
 msgid "internal URL"
 msgstr ""
 
-#: izpitnik/navigation/models.py:40
+#: izpitnik/navigation/models.py:80
 msgid "parent ID"
 msgstr ""
 
-#: izpitnik/orth_calendar/forms.py:19
+#: izpitnik/navigation/models.py:93 izpitnik/navigation/models.py:166
+msgid "language"
+msgstr ""
+
+#: izpitnik/navigation/models.py:100
+msgid "order"
+msgstr ""
+
+#: izpitnik/navigation/models.py:167
+msgid "languages"
+msgstr ""
+
+#: izpitnik/orth_calendar/apps.py:8
+msgid "orthodox calendar"
+msgstr ""
+
+#: izpitnik/orth_calendar/apps.py:9
+msgid "orthodox calendars"
+msgstr ""
+
+#: izpitnik/orth_calendar/forms.py:24
 msgid "Add comma separated feast list here:"
 msgstr ""
 
-#: izpitnik/orth_calendar/forms.py:25
+#: izpitnik/orth_calendar/forms.py:26 izpitnik/orth_calendar/models.py:38
+#: izpitnik/orth_calendar/models.py:104
+msgid "feast"
+msgstr ""
+
+#: izpitnik/orth_calendar/forms.py:31
 msgid "Add comma separated saints list here:"
 msgstr ""
 
-#: izpitnik/orth_calendar/models.py:29
+#: izpitnik/orth_calendar/forms.py:33 izpitnik/orth_calendar/models.py:18
+#: izpitnik/orth_calendar/models.py:51 izpitnik/orth_calendar/models.py:112
+msgid "saint"
+msgstr ""
+
+#: izpitnik/orth_calendar/models.py:19
+msgid "saints"
+msgstr ""
+
+#: izpitnik/orth_calendar/models.py:39
+msgid "feasts"
+msgstr ""
+
+#: izpitnik/orth_calendar/models.py:65
 msgid "Julian in gregorian"
 msgstr ""
 
-#: izpitnik/orth_calendar/models.py:30
+#: izpitnik/orth_calendar/models.py:66
 msgid "Julian"
 msgstr ""
 
-#: izpitnik/orth_calendar/models.py:31
+#: izpitnik/orth_calendar/models.py:67
 msgid "Gregorian"
 msgstr ""
 
-#: izpitnik/settings.py:131
+#: izpitnik/orth_calendar/models.py:70
+msgid "holiday occurrence"
+msgstr ""
+
+#: izpitnik/orth_calendar/models.py:71
+msgid "holiday occurrences"
+msgstr ""
+
+#: izpitnik/orth_calendar/models.py:75
+msgid "date"
+msgstr ""
+
+#: izpitnik/orth_calendar/models.py:83
+msgid "calendar"
+msgstr ""
+
+#: izpitnik/orth_calendar/models.py:90
+msgid "easter distance"
+msgstr ""
+
+#: izpitnik/orth_calendar/models.py:97
+msgid "christmas distance"
+msgstr ""
+
+#: izpitnik/orth_calendar/models.py:174
+msgid "related holiday occurrence"
+msgstr ""
+
+#: izpitnik/orth_calendar/models.py:175
+msgid "related holiday occurrences"
+msgstr ""
+
+#: izpitnik/settings.py:164
 msgid "English"
 msgstr ""
 
-#: izpitnik/settings.py:132
+#: izpitnik/settings.py:165
 msgid "Bulgarian"
+msgstr ""
+
+#: izpitnik/styling/apps.py:8
+msgid "styling"
+msgstr ""
+
+#: izpitnik/styling/apps.py:9
+msgid "stylings"
+msgstr ""
+
+#: izpitnik/styling/models.py:15
+msgid "section name"
+msgstr ""
+
+#: izpitnik/styling/models.py:20
+msgid "section style"
+msgstr ""
+
+#: izpitnik/styling/models.py:27 izpitnik/styling/models.py:73
+msgid "section"
+msgstr ""
+
+#: izpitnik/styling/models.py:28
+msgid "sections"
+msgstr ""
+
+#: izpitnik/styling/models.py:50
+msgid "value"
+msgstr ""
+
+#: izpitnik/styling/models.py:55
+msgid "style"
+msgstr ""
+
+#: izpitnik/styling/models.py:63
+msgid "type"
+msgstr ""
+
+#: izpitnik/styling/models.py:67
+msgid "enabled"
+msgstr ""
+
+#: izpitnik/styling/models.py:80
+msgid "option"
+msgstr ""
+
+#: izpitnik/styling/models.py:81
+msgid "settings"
+msgstr ""
+
+#: templates/accounts/login.html:14
+msgid "login"
+msgstr ""
+
+#: templates/accounts/register.html:10
+msgid "register"
+msgstr ""
+
+#: templates/articles/render_articles_list.html:3
+msgid "tiled articles preview"
+msgstr ""
+
+#: templates/articles/render_articles_list.html:20
+msgid "no tiles found"
+msgstr ""
+
+#: templates/articles/render_articles_list.html:23
+msgid "no tiles"
+msgstr ""
+
+#: templates/articles/render_articles_list.html:24
+msgid "no articles are added yet"
+msgstr ""
+
+#: templates/common/base.html:36
+msgid "you are logged in as: "
+msgstr ""
+
+#: templates/orth_calendar/calendar.html:6
+msgid "Current calendar:"
+msgstr ""
+
+#: templates/orth_calendar/calendar.html:9
+msgid "bulgarian orthodox church saints of this day:"
+msgstr ""
+
+#: templates/orth_calendar/calendar.html:12
+msgid "bulgarian orthodox church feasts of this day:"
 msgstr ""

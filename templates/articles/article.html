@@ -1,0 +1,10 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block head_content %}
+	<link rel="stylesheet" href="{% static 'css/articles/article.css' %}">
+{% endblock %}
+
+{% block main_content %}
+	{% include 'articles/render_article.html' %}
+{% endblock %}
