@@ -1,6 +1,6 @@
 
 export default function handleLogout(){
-    const button = document.querySelector('a[href="/auth/logout/"]')
+    const button = document.querySelector('a[href*="/auth/logout/"]')
     if (!button){
         return
     }

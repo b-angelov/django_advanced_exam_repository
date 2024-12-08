@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-08 01:06+0200\n"
+"POT-Creation-Date: 2024-12-09 00:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,12 +26,20 @@ msgstr ""
 msgid "accounts"
 msgstr ""
 
-#: izpitnik/accounts/views.py:21
+#: izpitnik/accounts/views.py:22
 msgid "You have successfully logged in!"
 msgstr ""
 
-#: izpitnik/accounts/views.py:34 templates/accounts/logout.html:11
+#: izpitnik/accounts/views.py:35 templates/accounts/logout.html:11
 msgid "You have successfully logged out!"
+msgstr ""
+
+#: izpitnik/articles/views.py:25
+msgid "for this user"
+msgstr ""
+
+#: izpitnik/articles/views.py:37 izpitnik/common/views.py:17
+msgid "for this day"
 msgstr ""
 
 #: izpitnik/common/apps.py:7 izpitnik/common/apps.py:8
@@ -45,7 +53,7 @@ msgstr ""
 #: izpitnik/navigation/admin.py:44 izpitnik/navigation/forms.py:12
 #: izpitnik/navigation/models.py:21 izpitnik/navigation/models.py:155
 #: izpitnik/orth_calendar/models.py:25 izpitnik/orth_calendar/models.py:45
-#: izpitnik/styling/models.py:43
+#: izpitnik/styling/models.py:43 templates/accounts/profile.html:19
 msgid "name"
 msgstr ""
 
@@ -235,24 +243,56 @@ msgstr ""
 msgid "login"
 msgstr ""
 
+#: templates/accounts/profile-edit.html:13
+#: templates/articles/article-create.html:13
+#: templates/articles/article-delete.html:12
+msgid "submit"
+msgstr ""
+
+#: templates/accounts/profile.html:16
+msgid "edit"
+msgstr ""
+
+#: templates/accounts/profile.html:17
+msgid "username"
+msgstr ""
+
+#: templates/accounts/profile.html:21
+msgid "age"
+msgstr ""
+
+#: templates/accounts/profile.html:25
+msgid "description"
+msgstr ""
+
 #: templates/accounts/register.html:10
 msgid "register"
+msgstr ""
+
+#: templates/articles/render_article.html:11
+#: templates/articles/render_articles_list.html:12
+msgid "no image found"
 msgstr ""
 
 #: templates/articles/render_articles_list.html:3
 msgid "tiled articles preview"
 msgstr ""
 
-#: templates/articles/render_articles_list.html:20
+#: templates/articles/render_articles_list.html:26
+#: templates/articles/render_articles_list.html:37
 msgid "no tiles found"
 msgstr ""
 
-#: templates/articles/render_articles_list.html:23
+#: templates/articles/render_articles_list.html:29
 msgid "no tiles"
 msgstr ""
 
-#: templates/articles/render_articles_list.html:24
+#: templates/articles/render_articles_list.html:30
 msgid "no articles are added yet"
+msgstr ""
+
+#: templates/articles/render_articles_list.html:40
+msgid "add new tile"
 msgstr ""
 
 #: templates/common/base.html:36

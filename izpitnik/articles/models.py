@@ -22,7 +22,7 @@ class Article(models.Model):
     image =models.ImageField(
         null=True,
         blank=True,
-        default='saint.webp'
+        default=None
     )
 
     saint = models.ManyToManyField(

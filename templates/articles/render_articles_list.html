@@ -5,7 +5,13 @@
         {% for article in articles %}
         <article>
                 <figure>
-                    <a href="{{ article.article_url }}"><img src="{{ article.image.url }}" alt="{{ article.title }}"></a>
+                    <a href="{{ article.article_url }}">
+                        {% if article.image %}
+                            <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                        {% else %}
+                            <img src="{% static 'images/articles/saint.webp' %}" alt="{% translate 'no image found' %}">
+                        {% endif %}
+                    </a>
                 </figure>
                 <main>
                     <a href="{{ article.article_url }}"><h2>{{ article.title|capfirst }}</h2></a>
@@ -20,9 +26,20 @@
                 <img src="{% static 'images/articles/saint.webp' %}" alt="{% translate 'no tiles found' %}">
             </figure>
             <main>
-                <h2>{% translate 'no tiles'|capfirst %}{{ for_this_day }}</h2>
-                <p>{% translate 'no articles are added yet'|capfirst %}{{ for_this_day }}</p>
+                <h2>{% translate 'no tiles'|capfirst %} {{ for_this_day }}</h2>
+                <p>{% translate 'no articles are added yet'|capfirst %} {{ for_this_day }}</p>
             </main>
         </article>
         {% endif %}
+        {% if user.is_authenticated %}
+        <article class="new-article-tile">
+            <figure>
+                <img src="{% static 'images/articles/saint.webp' %}" alt="{% translate 'no tiles found' %}">
+            </figure>
+            <main>
+                <h2>{% translate 'add new tile'|capfirst %}</h2>
+                <p class="new-article-sign"> + </p>
+            </main>
+        </article>
+        {% endif %} 
 </section>

@@ -1,9 +1,15 @@
+{% load i18n %}
+{% load static %}
 {% load markdown %}
 
 <section class="single-article">
     <article>
         <figure>
-            <img src="{{ article.image.url }}" alt="{{ article.title }}">
+            {% if article.image %}
+                <img src="{{ article.image.url }}" alt="{{ article.title }}">
+            {% else %}
+                <img src="{% static 'images/articles/saint.webp' %}" alt="{% translate 'no image found' %}">
+            {% endif %} 
         </figure>
         <main>
             <h2>{{ article.title|capfirst }}</h2>

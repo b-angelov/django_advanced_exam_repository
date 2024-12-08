@@ -1,0 +1,16 @@
+{% extends 'common/base.html' %}
+{% load i18n %}
+
+{% block head_content %}
+	
+{% endblock %}
+
+{% block main_content %}
+    <form action="" method="post">
+    
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="{% translate 'submit' %}">
+    
+    </form>
+{% endblock %}

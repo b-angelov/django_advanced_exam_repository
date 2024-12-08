@@ -8,3 +8,6 @@ class UserConfig(AppConfig):
     verbose_name = _("account")
     verbose_name_plural = _("accounts")
 
+    def ready(self):
+        from izpitnik.accounts.signals import create_profile
+
