@@ -1,0 +1,31 @@
+{% extends  'common/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block head_content %}
+	<link rel="stylesheet" href="{% static 'css/articles/article.css' %}">
+{% endblock %}
+
+{% block main_content %}
+    <section class="single-article">
+    <article>
+        <header>
+            <figure>
+                <img src="{{ object.image.url }}" alt="{{ object.user.first_name }}">
+            </figure>
+            <a href="{% url 'profile-edit-page' %}"><button>{% translate 'edit' %}</button></a>
+            <h1>{% translate 'username'|capfirst %}</h1>
+            <p>{{ object.user.username }}</p>
+            <h2>{% translate 'name' %}</h2>
+            <p>{{ object.user.first_name }} {{ object.user.last_name }}</p>
+            <h2>{% translate 'age' %}</h2>
+            <p>{{ object.age }}</p>
+        </header>
+        <main>
+            <h1>{% translate 'description' %}</h1>
+            <p>{{ object.description }}</p>
+        </main>
+    {{ object.user.email}}
+    </article>
+    </section>
+{% endblock %}

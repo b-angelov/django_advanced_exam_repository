@@ -15,6 +15,7 @@
 
 .article-list article{
     max-width:49%;
+    min-width: 49%;
     display: flex;
     background-color: rgb(221,191,241,0.6);
     border-radius: 3%/5%;
@@ -59,4 +60,16 @@
     display:inline;
     padding: 0 !important;
     margin: 0 !important;
+}
+
+.new-article-tile .new-article-sign{
+    font-size: 8em;
+    padding: 0 0.1em;
+    margin: 0;
+    display: inline;
+    line-height: 0.4em;
+}
+
+.new-article-tile{
+    background-color: rgb(28,108,32,0.4) !important;
 }

@@ -6,5 +6,5 @@
 {% endblock %}
 
 {% block main_content %}
-    {% include 'articles/render_articles_list.html' with articles=object_list %}
+    {% include 'articles/render_articles_list.html' with articles=object_list for_this_day=for_this_day %}
 {% endblock %}
