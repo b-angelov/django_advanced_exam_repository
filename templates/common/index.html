@@ -10,7 +10,7 @@
 
 {% block main_content %}
     {% include 'orth_calendar/calendar.html' %}
-    {% include 'articles/render_articles_list.html' with articles=articles %}
+    {% include 'articles/render_articles_list.html' with articles=articles for_this_day=for_this_day %}
 {% endblock %}
 
 {% block under_main_content %}

@@ -25,3 +25,13 @@
     width: 100%;
     border-radius: 40% 40% 7% 7%;
 }
+
+.single-article header{
+    flex-direction: column;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}

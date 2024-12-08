@@ -2,17 +2,19 @@ from http import HTTPStatus
 
 from django.shortcuts import render
 from django.template.loader import render_to_string
-from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 from django.views import View
 from django.views.generic import TemplateView
 
+from izpitnik.articles.mixins import NoDataMessage
 from izpitnik.articles.views import ArticlesOnDate
 
 
 # Create your views here.
 
-class HomePage(TemplateView):
+class HomePage(NoDataMessage, TemplateView):
     template_name = 'common/index.html'
+    no_data_message = _('for this day')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

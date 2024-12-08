@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-08 01:06+0200\n"
+"POT-Creation-Date: 2024-12-09 00:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,15 +26,23 @@ msgstr "акаунт"
 msgid "accounts"
 msgstr "акаунти"
 
-#: izpitnik/accounts/views.py:21
+#: izpitnik/accounts/views.py:22
 #, fuzzy
 #| msgid "You have successfully logged out!"
 msgid "You have successfully logged in!"
 msgstr "Вписахте се успешно!"
 
-#: izpitnik/accounts/views.py:34 templates/accounts/logout.html:11
+#: izpitnik/accounts/views.py:35 templates/accounts/logout.html:11
 msgid "You have successfully logged out!"
 msgstr "Излязохте успешно!"
+
+#: izpitnik/articles/views.py:25
+msgid "for this user"
+msgstr "от потребителя"
+
+#: izpitnik/articles/views.py:37 izpitnik/common/views.py:17
+msgid "for this day"
+msgstr "за този ден"
 
 #: izpitnik/common/apps.py:7 izpitnik/common/apps.py:8
 msgid "common"
@@ -47,7 +55,7 @@ msgstr "меню"
 #: izpitnik/navigation/admin.py:44 izpitnik/navigation/forms.py:12
 #: izpitnik/navigation/models.py:21 izpitnik/navigation/models.py:155
 #: izpitnik/orth_calendar/models.py:25 izpitnik/orth_calendar/models.py:45
-#: izpitnik/styling/models.py:43
+#: izpitnik/styling/models.py:43 templates/accounts/profile.html:19
 #, fuzzy
 #| msgid "item name"
 msgid "name"
@@ -251,27 +259,67 @@ msgstr "настройки"
 msgid "login"
 msgstr "влизане"
 
+#: templates/accounts/profile-edit.html:13
+#: templates/articles/article-create.html:13
+#: templates/articles/article-delete.html:12
+msgid "submit"
+msgstr "изпращане"
+
+#: templates/accounts/profile.html:16
+msgid "edit"
+msgstr "редактиране"
+
+#: templates/accounts/profile.html:17
+#, fuzzy
+#| msgid "item name"
+msgid "username"
+msgstr "име"
+
+#: templates/accounts/profile.html:21
+msgid "age"
+msgstr "възраст"
+
+#: templates/accounts/profile.html:25
+#, fuzzy
+#| msgid "section"
+msgid "description"
+msgstr "секция"
+
 #: templates/accounts/register.html:10
 msgid "register"
 msgstr "регистриране"
+
+#: templates/articles/render_article.html:11
+#: templates/articles/render_articles_list.html:12
+#, fuzzy
+#| msgid "no tiles found"
+msgid "no image found"
+msgstr "няма добавени картички"
 
 #: templates/articles/render_articles_list.html:3
 msgid "tiled articles preview"
 msgstr "преглед на картички от статиите"
 
-#: templates/articles/render_articles_list.html:20
+#: templates/articles/render_articles_list.html:26
+#: templates/articles/render_articles_list.html:37
 msgid "no tiles found"
 msgstr "няма добавени картички"
 
-#: templates/articles/render_articles_list.html:23
+#: templates/articles/render_articles_list.html:29
 #, fuzzy
 #| msgid "no tiles found"
 msgid "no tiles"
 msgstr "няма картички"
 
-#: templates/articles/render_articles_list.html:24
+#: templates/articles/render_articles_list.html:30
 msgid "no articles are added yet"
 msgstr "все още няма добавени статий"
+
+#: templates/articles/render_articles_list.html:40
+#, fuzzy
+#| msgid "no tiles found"
+msgid "add new tile"
+msgstr "добави картичка"
 
 #: templates/common/base.html:36
 msgid "you are logged in as: "
