@@ -95,16 +95,6 @@
 },
 {
   "model": "accounts.profile",
-  "pk": 8,
-  "fields": {
-    "user": 14,
-    "description": "",
-    "image": "images/accounts/profile.png",
-    "birth_date": "2024-12-08"
-  }
-},
-{
-  "model": "accounts.profile",
   "pk": 9,
   "fields": {
     "user": 1,
