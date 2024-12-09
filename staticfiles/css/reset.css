@@ -1,0 +1,23 @@
+
+.reset{
+    margin: 0;
+    padding: 0;
+}
+
+.reset-list{
+    list-style: none;
+}
+
+.reset-text{
+    text-decoration: none;
+    color: inherit;
+}
+
+.reset-text:hover{
+    text-decoration: none;
+}
+
+.reset-text:visited{}
+
+.reset-text:active{}
+
