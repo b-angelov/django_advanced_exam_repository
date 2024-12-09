@@ -1,0 +1,104 @@
+@media screen and (width < 1200px){
+    .article-list article{
+        min-width: 100%;
+    }
+}
+
+.article-list{
+    display:flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    gap: 0.2em;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+
+.article-list article{
+    max-width:49%;
+    min-width: 49%;
+    display: flex;
+    background-color: rgb(221,191,241,0.6);
+    border-radius: 3%/5%;
+    box-shadow: 0.1em 0.1em 0.11em rgb(25,24,52,0.8);
+    color: rgba(204, 125, 3, 0.97);
+    min-height: 245px;
+    cursor: pointer;
+}
+
+.article-list article figure{
+    max-width: 40%;
+    height: auto;
+    text-overflow: fade;
+    margin: 0.5em 0 1em 0.5em;
+}
+
+.article-list article img{
+    width: 100%;
+    height: auto;
+    box-shadow: 0.1em 0.1em 0.08em rgba(5, 42, 101, 0.7);
+    outline: rgba(248, 204, 6, 0.62) solid 0.02em;
+}
+
+.article-list article main{
+    text-align: left;
+}
+
+.article-list article main > *{
+    margin: 0 0 0.2em 0.2em;
+}
+
+.article-list article main p{
+    font-size: 0.8em;
+}
+
+.article-list article main h2{
+    margin: 0 0.3em 0.2em 0.2em;
+}
+
+.article-list a{
+    text-decoration: none;
+    color: inherit;
+    display:inline;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.new-article-tile .new-article-sign{
+    font-size: 8em;
+    padding: 0 0.1em;
+    margin: 0;
+    display: inline;
+    line-height: 0.4em;
+}
+
+.new-article-tile{
+    background-color: rgb(28,108,32,0.4) !important;
+}
+
+.new-article-tile:hover{
+    background-color: rgb(28,108,32,0.7) !important;
+    cursor: pointer;
+}
+
+.article-list nav{
+    font-family: fontawesomesolid, serif;
+    font-size: 0.5em;
+    z-index: 2000;
+}
+
+.article-list article{
+    position: relative;
+}
+
+.article-list nav ul{
+    display: flex;
+    list-style: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.article-list nav ul li{
+    padding: 0 0.3em 0 0.2em;
+}

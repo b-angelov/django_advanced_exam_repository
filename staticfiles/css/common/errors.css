@@ -1,0 +1,22 @@
+
+
+#error {
+    color: #f7610a;
+    font-size: 0.8em;
+    transition: all ease-in 1s;
+
+}
+
+#error:focus-visible{
+    font-size: 1.5em;
+    color: #f7130a;
+    transition: all ease-in 1s;
+}
+
+#error .error-title{
+    font-size: 0.9em;
+}
+
+#error .error-body{
+    font-size: 1.1em;
+}

@@ -1,0 +1,50 @@
+@font-face{
+font-family:oldCyrillic;
+src:url('../fonts/oldc.ttf');
+font-style:normal;
+font-size:18pt;
+}
+
+@font-face{
+font-family:uniphone;
+src:url('../fonts/Nnph.ttf');
+font-style:normal;
+font-weight:100;
+font-size:5pt !important;
+}
+
+@font-face{
+font-family:glagolica;
+src:url('../fonts/glagolica.ttf');
+font-style:normal;
+font-weight:100;
+font-size:5pt !important;
+}
+
+@font-face {
+    font-family:fontawesomeregular;
+    src:url(../fonts/fontawesome/fa-regular-400.woff2);
+    font-weight:normal;
+    font-size: 1em;
+}
+
+@font-face {
+    font-family:fontawesomesolid;
+    src:url(../fonts/fontawesome/fa-solid-900.woff2);
+    font-weight:900;
+    font-size: 1.1em;
+}
+
+@font-face {
+    font-family:fontawesomebrands;
+    src:url(../fonts/fontawesome/fa-brands-400.woff2);
+    font-weight:normal;
+    font-size: 1em;
+}
+
+@font-face{
+    font-family: Z003;
+    src:url(../fonts/Z003-MediumItalic.ttf);
+    font-weight: 600;
+    font-size: 1.3em;
+}

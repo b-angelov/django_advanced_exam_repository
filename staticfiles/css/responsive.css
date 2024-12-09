@@ -1,0 +1,85 @@
+@import url("./marble/single.css") (min-width: 600px);
+@import url("./marble/sided.css") (min-width: 1000px);
+
+@media screen and (width <= 600px){
+    #website{
+        z-index:3;
+        position:relative;
+    }
+    #header{
+        min-height: 20vh;
+    }
+
+    #header-main-wrapper{
+        min-height: 20vh;
+    }
+
+    .images-container-backgrounder{
+        display: none;
+    }
+
+    #content{
+        background:none;
+        position: relative;
+    }
+
+    #content::before{
+        z-index:-999999;
+        position: absolute;
+        display: block;
+        background:url("../images/styles/marble/half.png") repeat-y, url("../images/styles/marble/half-arch.png") top no-repeat;
+        background-size: 120% 20%;
+        top: 0;
+        left:0;
+        width:100%;
+        height: 100%;
+        content: '          ';
+    }
+
+    #logo{
+        margin-left: 22vw;
+    }
+    #logo::before{
+        font-size: 0.9em !important;
+    }
+}
+
+
+
+@media screen and (width < 1000px){
+
+
+    #right-style .images-container-backgrounder{
+        display: none;
+    }
+
+    #header{
+        height: 100%;
+        background-size: cover;
+    }
+
+    #component_right{
+        margin-left: 2%;
+    }
+
+    #component{
+        border-radius: 17% 2% 0 0;
+        padding-top: 4vh;
+        margin-top: 1vh;
+    }
+
+}
+
+@media screen and (width < 900px){
+
+    #component_right{
+        margin-left: 8%;
+        position: relative;
+    }
+
+}
+
+
+
+
+

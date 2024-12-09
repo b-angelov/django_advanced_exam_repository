@@ -1,0 +1,43 @@
+
+
+#calendar-main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+    justify-items: flex-start;
+}
+
+.calendar{
+    font-size: 0.4em;
+    width: 100%;
+}
+
+.calendar p{
+    display: inline;
+}
+
+.feast, .saint{
+    width:100%;
+    display:flex;
+    flex-grow: 2;
+    justify-items: center;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    column-gap: 3em;
+    flex-wrap: wrap;
+    padding-top:0;
+
+}
+
+.saint > *, .feast > *{
+        margin: 0.3em 0;
+}
+
+.desc{
+    width: 100%;
+    padding-bottom: 0;
+}
