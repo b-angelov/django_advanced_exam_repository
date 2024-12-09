@@ -1,0 +1,34 @@
+
+
+.message-container{
+    transform: matrix(125);
+    transition: all ease-in-out 1s 1s !important;
+    width: 5em;
+    height: 2em;
+    position: relative;
+    display:flex;
+    align-items:center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    background: none !important;
+    border: none !important;
+    color: rgba(248, 191, 3, 0.92) !important;
+    flex-wrap: wrap;
+    flex-grow: 2;
+
+}
+
+.message-container.hides{
+    width: 0.3em;
+    height: 0.3em;
+    font-size: 0.1em;
+    visibility: hidden;
+}
+
+.message-container > div{
+    background: rgb(132,11,11,0.5);
+    width: 50%;
+    margin-left: 25%;
+}
+

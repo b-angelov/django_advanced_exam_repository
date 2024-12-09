@@ -1,0 +1,5 @@
+@import "../fonts.css";
+body, form, input, table{
+    font-family: var(--font-family-primary),var(--font-family-monospace),fontawesomeregular,fontawesomesolid,fontawesomebrands, serif;
+    /*font-size-adjust: 0.7;*/
+}
