@@ -94,46 +94,6 @@
   }
 },
 {
-  "model": "accounts.profile",
-  "pk": 9,
-  "fields": {
-    "user": 1,
-    "description": "This is admin's profile, it is the main superuser!",
-    "image": "ignajden-1003-1140x0_9mpHG9l.jpg",
-    "birth_date": "1990-11-12"
-  }
-},
-{
-  "model": "accounts.profile",
-  "pk": 10,
-  "fields": {
-    "user": 4,
-    "description": "",
-    "image": "images/accounts/profile.png",
-    "birth_date": null
-  }
-},
-{
-  "model": "accounts.profile",
-  "pk": 11,
-  "fields": {
-    "user": 3,
-    "description": "",
-    "image": "images/accounts/profile.png",
-    "birth_date": null
-  }
-},
-{
-  "model": "accounts.profile",
-  "pk": 12,
-  "fields": {
-    "user": 2,
-    "description": "",
-    "image": "images/accounts/profile.png",
-    "birth_date": null
-  }
-},
-{
   "model": "navigation.menu",
   "pk": 1,
   "fields": {
