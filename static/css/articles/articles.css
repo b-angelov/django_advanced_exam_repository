@@ -13,6 +13,7 @@
     align-content: flex-start;
 }
 
+
 .article-list article{
     max-width:49%;
     min-width: 49%;
@@ -22,6 +23,7 @@
     box-shadow: 0.1em 0.1em 0.11em rgb(25,24,52,0.8);
     color: rgba(204, 125, 3, 0.97);
     min-height: 245px;
+    cursor: pointer;
 }
 
 .article-list article figure{
@@ -72,4 +74,31 @@
 
 .new-article-tile{
     background-color: rgb(28,108,32,0.4) !important;
+}
+
+.new-article-tile:hover{
+    background-color: rgb(28,108,32,0.7) !important;
+    cursor: pointer;
+}
+
+.article-list nav{
+    font-family: fontawesomesolid, serif;
+    font-size: 0.5em;
+    z-index: 2000;
+}
+
+.article-list article{
+    position: relative;
+}
+
+.article-list nav ul{
+    display: flex;
+    list-style: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.article-list nav ul li{
+    padding: 0 0.3em 0 0.2em;
 }

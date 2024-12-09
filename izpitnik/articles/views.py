@@ -3,20 +3,21 @@ from datetime import datetime
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView, DetailView, CreateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
-from izpitnik.articles.forms import CreateArticleForm
-from izpitnik.articles.mixins import ArticleUrl, article_url, NoDataMessage
+from izpitnik.articles.forms import CreateArticleForm, EditArticleForm
+from izpitnik.articles.mixins import ArticleUrl, article_url, NoDataMessage, SetOwnerAttribute, set_own_attribute
 from izpitnik.articles.models import Article
+from izpitnik.articles.permissions import IsAuthor
 from izpitnik.orth_calendar.models import HolidayOccurrences
 
 
 # Create your views here.
 
-class ArticleListView(NoDataMessage, ArticleUrl, ListView):
+class ArticleListView(SetOwnerAttribute, NoDataMessage, ArticleUrl, ListView):
     template_name = 'articles/articles.html'
     model = Article
 
@@ -24,6 +25,7 @@ class ArticleListView(NoDataMessage, ArticleUrl, ListView):
 class ArticlesByUser(ArticleListView):
     no_data_message = _('for this user')
 
+    @set_own_attribute
     @article_url
     def get_queryset(self):
         return Article.objects.filter(author__pk=self.request.user.pk)
@@ -52,6 +54,12 @@ class ArticleView(ArticleUrl,DetailView):
     model = Article
     template_name = 'articles/article.html'
 
+    @set_own_attribute
+    def get_object(self, queryset = None):
+        obj = super().get_object()
+        return obj
+
+    @set_own_attribute
     def get_queryset(self):
         pk = self.kwargs.get('pk',None)
         slug = self.kwargs.get('title', None)
@@ -63,16 +71,30 @@ class ArticleAddView(LoginRequiredMixin,CreateView):
     form_class = CreateArticleForm
     model = Article
     success_url = reverse_lazy('user-articles')
+    login_url = reverse_lazy('login-page')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-class ArticleDeleteView(UserPassesTestMixin,DeleteView):
+class ArticleDeleteView(IsAuthor,UserPassesTestMixin,DeleteView):
     model = Article
     template_name = 'articles/article-delete.html'
 
-    def test_func(self):
-        return self.object.author.pk == self.request.user.pk
+    def get_success_url(self):
+        return reverse_lazy('user-articles')
+
+class ArticleEditView(IsAuthor,UpdateView):
+    model = Article
+    template_name = 'articles/article-edit.html'
+    form_class = EditArticleForm
+
+    def get_success_url(self):
+        obj = self.get_object()
+        print( obj.pk, obj.title)
+        url = reverse_lazy('single-article', kwargs={"pk" : obj.pk, "title" : obj.title})
+        return url
+
+
 
 
