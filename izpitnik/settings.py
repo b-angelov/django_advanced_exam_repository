@@ -30,6 +30,8 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(post_process=list))
 
+CSRF_TRUSTED_ORIGINS=config('CSRF_TRUSTED_ORIGINS',cast=Csv(post_process=list))
+
 
 # Application definition
 
