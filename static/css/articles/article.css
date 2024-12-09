@@ -35,3 +35,30 @@
     justify-content: center;
     justify-items: center;
 }
+
+.single-article nav{
+    font-family: fontawesomesolid, serif;
+    font-size: 1.5em;
+    z-index: 2000;
+}
+
+.single-article article{
+    position: relative;
+}
+
+.single-article nav ul{
+    display: flex;
+    list-style: none;
+    position: absolute;
+    top: 10vh;
+    right: 2vw;
+}
+
+.single-article nav ul li{
+    padding: 0 0.3em 0 0.2em;
+}
+
+.single-article nav a{
+    text-decoration: none;
+    color: inherit;
+}

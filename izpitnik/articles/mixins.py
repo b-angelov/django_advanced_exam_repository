@@ -27,6 +27,24 @@ class NoDataMessage:
             context['for_this_day'] = self.no_data_message
         return context
 
+class SetOwnerAttribute:
+
+    def get_queryset(self, *args, **kwargs):
+        queryset = super().get_queryset(*args, **kwargs)
+        queryset = self.set_is_own(self, queryset)
+        return queryset
+
+    @classmethod
+    def set_is_own(cls,instance, queryset):
+        if not hasattr(queryset, '__iter__'):
+            queryset.is_own = (instance.request.user.pk == queryset.author.pk) or instance.request.user.is_superuser
+            return queryset
+        for article in queryset:
+            article.is_own = (instance.request.user.pk == article.author.pk) or instance.request.user.is_superuser
+        return queryset
+
+
+
 
 def article_url(func):
     def wrapper(self):
@@ -34,4 +52,11 @@ def article_url(func):
         res = func(self)
         arturl.set_urls(res)
         return res
+    return wrapper
+
+def set_own_attribute(func):
+    def wrapper(self):
+        queryset = func(self)
+        queryset = SetOwnerAttribute.set_is_own(self, queryset)
+        return queryset
     return wrapper

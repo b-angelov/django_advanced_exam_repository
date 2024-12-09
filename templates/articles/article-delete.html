@@ -6,9 +6,11 @@
 {% endblock %}
 
 {% block main_content %}
+    {% translate 'do you really want to delete:'|capfirst %}
+    {{ object.title }}
     <form action="" method="post">
         {% csrf_token %}
         {{ form }}
-        <button type="submit">{% translate 'submit' %}</button>
+        <button type="submit">{% translate 'delete' %}</button>
     </form>
 {% endblock %}

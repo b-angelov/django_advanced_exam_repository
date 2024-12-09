@@ -14,6 +14,18 @@
         <main>
             <h2>{{ article.title|capfirst }}</h2>
             <p>{{ article.content|capfirst|markdown }}</p>
+            {% if article.is_own %}
+                <nav>
+                    <ul>
+                        <li><a href="{% url "article-edit" article.pk %}">
+                            
+                        </a></li>
+                        <li><a href="{% url "article-delete" article.pk %}">
+                            
+                        </a></li>
+                    </ul>
+                </nav>
+            {% endif %} 
         </main>
     </article>
 </section>

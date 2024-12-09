@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-09 00:58+0200\n"
+"POT-Creation-Date: 2024-12-09 15:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,11 +34,11 @@ msgstr ""
 msgid "You have successfully logged out!"
 msgstr ""
 
-#: izpitnik/articles/views.py:25
+#: izpitnik/articles/views.py:26
 msgid "for this user"
 msgstr ""
 
-#: izpitnik/articles/views.py:37 izpitnik/common/views.py:17
+#: izpitnik/articles/views.py:39 izpitnik/common/views.py:17
 msgid "for this day"
 msgstr ""
 
@@ -245,7 +245,6 @@ msgstr ""
 
 #: templates/accounts/profile-edit.html:13
 #: templates/articles/article-create.html:13
-#: templates/articles/article-delete.html:12
 msgid "submit"
 msgstr ""
 
@@ -269,8 +268,20 @@ msgstr ""
 msgid "register"
 msgstr ""
 
+#: templates/articles/article-delete.html:9
+msgid "do you really want to delete:"
+msgstr ""
+
+#: templates/articles/article-delete.html:14
+msgid "delete"
+msgstr ""
+
+#: templates/articles/article-edit.html:14
+msgid "send"
+msgstr ""
+
 #: templates/articles/render_article.html:11
-#: templates/articles/render_articles_list.html:12
+#: templates/articles/render_articles_list.html:11
 msgid "no image found"
 msgstr ""
 
@@ -278,20 +289,20 @@ msgstr ""
 msgid "tiled articles preview"
 msgstr ""
 
-#: templates/articles/render_articles_list.html:26
 #: templates/articles/render_articles_list.html:37
+#: templates/articles/render_articles_list.html:48
 msgid "no tiles found"
 msgstr ""
 
-#: templates/articles/render_articles_list.html:29
+#: templates/articles/render_articles_list.html:40
 msgid "no tiles"
 msgstr ""
 
-#: templates/articles/render_articles_list.html:30
+#: templates/articles/render_articles_list.html:41
 msgid "no articles are added yet"
 msgstr ""
 
-#: templates/articles/render_articles_list.html:40
+#: templates/articles/render_articles_list.html:51
 msgid "add new tile"
 msgstr ""
 
