@@ -3,20 +3,31 @@
 <p>{% translate 'tiled articles preview'|capfirst %}</p>
 <section class="article-list">
         {% for article in articles %}
-        <article>
+        <article onclick="window.location.href='{{ article.article_url }}';">
                 <figure>
-                    <a href="{{ article.article_url }}">
                         {% if article.image %}
                             <img src="{{ article.image.url }}" alt="{{ article.title }}">
                         {% else %}
                             <img src="{% static 'images/articles/saint.webp' %}" alt="{% translate 'no image found' %}">
                         {% endif %}
-                    </a>
                 </figure>
                 <main>
-                    <a href="{{ article.article_url }}"><h2>{{ article.title|capfirst }}</h2></a>
-                    <a href="{{ article.article_url }}"><p>{{ article.content|truncatewords:5|capfirst }}</p></a>
+                    <h2>{{ article.title|capfirst }}</h2>
+                    <p>{{ article.content|truncatewords:5|capfirst }}</p>
+                    {% if article.is_own %}
+                        <nav>
+                            <ul>
+                                <li><a href="{% url "article-edit" article.pk %}">
+                                    
+                                </a></li>
+                                <li><a href="{% url "article-delete" article.pk %}">
+                                    
+                                </a></li>
+                            </ul>
+                        </nav>
+                    {% endif %} 
                 </main>
+                
         </article>
             
         {% endfor %}
@@ -32,7 +43,7 @@
         </article>
         {% endif %}
         {% if user.is_authenticated %}
-        <article class="new-article-tile">
+        <article class="new-article-tile" onclick="(e=>window.location.href = '{% url "article-create" %}')();">
             <figure>
                 <img src="{% static 'images/articles/saint.webp' %}" alt="{% translate 'no tiles found' %}">
             </figure>
