@@ -2,3 +2,6 @@
 __pycache__
 .env
 .idea
+nginx
+nginx.conf
+docker-compose.yml
