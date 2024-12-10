@@ -5,3 +5,4 @@ __pycache__
 nginx
 nginx.conf
 docker-compose.yml
+run.sh
