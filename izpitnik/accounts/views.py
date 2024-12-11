@@ -1,15 +1,17 @@
 from django.contrib import messages
+from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, FormView, UpdateView, DetailView
+from django.views.generic import CreateView, FormView, UpdateView, DetailView, DeleteView
 from unfold.forms import UserCreationForm
 from django.utils.translation import gettext_lazy as _
 
 from izpitnik.accounts.decorators import set_message
 from izpitnik.accounts.forms import MainUserCreationForm, ProfileForm
 from izpitnik.accounts.models import Profile
+User = get_user_model()
 
 
 # Create your views here.
@@ -79,6 +81,21 @@ class ProfileEditPage(UserPassesTestMixin,LoginRequiredMixin,UpdateView):
     def get_object(self, queryset = None):
         # user = self.get_uid()
         return Profile.objects.filter(user__pk=self.request.user.pk).first()
+
+class MainProfileDeleteView(UserPassesTestMixin,DeleteView):
+    template_name = 'accounts/delete-account.html'
+    model = User
+    success_url = reverse_lazy('login-page')
+
+    def test_func(self):
+        return self.request.user.is_authenticated
+
+    def get_object(self, queryset = None):
+        # user = self.get_uid()
+        return self.model.objects.filter(pk=self.request.user.pk).first()
+
+
+
 
 
 

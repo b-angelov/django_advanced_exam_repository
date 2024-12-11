@@ -14,6 +14,7 @@
                 <img src="{{ object.image.url }}" alt="{{ object.user.first_name }}">
             </figure>
             <a href="{% url 'profile-edit-page' %}"><button>{% translate 'edit' %}</button></a>
+            <a href="{% url 'profile-delete-page' %}"><button>{% translate 'delete' %}</button></a>
             <h1>{% translate 'username'|capfirst %}</h1>
             <p>{{ object.user.username }}</p>
             <h2>{% translate 'name' %}</h2>
