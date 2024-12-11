@@ -1,0 +1,41 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block head_content %}
+	<link rel="stylesheet" href="{% static 'css/articles/articles.css' %}">
+	<link rel="stylesheet" href="{% static 'css/common/calendar.css' %}">
+    <script type="module">
+        let element = document.querySelector('#component .component-wrapper')
+            const pattern = document.querySelector('#calendar-main') || null
+            if (pattern){
+                element = pattern.parentElement
+                pattern.remove()
+            }
+        
+        import {loadDateFeastAndSaints} from "../../static/js/orth_calendar/date_feast_and_saints.js";
+
+        const funcs = [
+            [loadDateFeastAndSaints,[element,pattern,"{{ date }}"]],
+        ]
+        
+        window.addEventListener('load', ()=> {
+            for (const [func,params] of funcs){
+                (async () => func(...params))();
+            }
+        })
+    </script>
+{% endblock %}
+
+{% block main_content %}
+	{% include 'common/calendar.html' %}
+
+    <article>
+        <div id="calendar-main">
+            <div class="saint"></div>
+            <div class="feast"></div>
+            <div class="holiday"></div>
+        </div>
+    </article>
+    {% include 'articles/render_articles_list.html' with articles=object_list for_this_day=for_this_day %}
+    
+{% endblock %}

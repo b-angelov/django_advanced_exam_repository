@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-09 15:23+0200\n"
+"POT-Creation-Date: 2024-12-10 22:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,11 +193,11 @@ msgstr "свързано проявление на празника"
 msgid "related holiday occurrences"
 msgstr "свързани проявления на празника"
 
-#: izpitnik/settings.py:164
+#: izpitnik/settings.py:167
 msgid "English"
 msgstr "Английски"
 
-#: izpitnik/settings.py:165
+#: izpitnik/settings.py:168
 msgid "Bulgarian"
 msgstr "Български"
 
@@ -272,7 +272,7 @@ msgstr "редактиране"
 #, fuzzy
 #| msgid "item name"
 msgid "username"
-msgstr "име"
+msgstr "потребителско име"
 
 #: templates/accounts/profile.html:21
 msgid "age"
