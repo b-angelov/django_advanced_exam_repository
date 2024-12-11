@@ -1,0 +1,19 @@
+{% extends 'common/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block head_content %}
+	<link rel="stylesheet" href="{% static 'css/accounts/forms.css' %}">
+	
+{% endblock %}
+
+{% block main_content %}
+    
+        {% translate 'do you really want to delete:'|capfirst %}
+    {{ object.username }}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">{% translate 'delete' %}</button>
+    </form>
+{% endblock %}
