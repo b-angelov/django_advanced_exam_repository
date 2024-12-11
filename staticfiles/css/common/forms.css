@@ -1,0 +1,65 @@
+form{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    gap: 1em;
+}
+
+form{
+    border: 1px solid rgb(222,223,181,0.8);
+    padding: 1.3em;
+    /*border-radius: 0.3em;*/
+    background-color: rgb(221,222,223,0.3);
+    border-radius: 40% 40% 7% 7%;
+}
+
+
+form input[type=submit], textarea, select, button{
+    max-width: 10vw;
+    text-align: center;
+    font-family: Z003, serif;
+    color: rgba(245, 157, 9, 0.94);
+    text-shadow: 0.08em 0.05em 0.04em rgb(11,22,55,0.9);
+    font-size:0.7em;
+    padding: 0.1em 1.3em;
+
+}
+
+form input[type=submit]:hover, form input:focus, textarea:hover, select:hover{
+    background-color: rgb(231,213,123,0.7);
+    /*text-shadow: 0.08em 0.05em 0.09em rgba(235, 237, 241, 0.9);*/
+    outline: none;
+    /*border-color: #f79b0d;*/
+    /*color:rgb(71,83,99,1);*/
+
+}
+
+input[type=submit]:hover,form input[type=submit]:hover, form select:hover{
+    color: rgba(245, 157, 9, 0.74);
+}
+
+input,form input, textarea, select{
+    background-color: rgb(231,213,123,0.4);
+    border-radius: 10%/40%;
+    /*color: #1f3f2f;*/
+    padding: 0.6em;
+}
+
+form label, form label{
+    font-size: 0.86em;
+}
+
+form textarea{
+    min-width: 30vw !important;
+    width: 100%;
+}
+
+form select{
+    min-width: 20vw !important;
+    width: 100%;
+}
