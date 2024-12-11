@@ -1,11 +1,13 @@
 import mainSectionToggle from "./utils/main_section_preview.js";
 import handleLogout from "./utils/logout.js";
 import hideMessages from "./utils/hide_messages.js";
+import linkToImage from "./utils/images.js";
 
 const functions_list = [
     [mainSectionToggle,[]],
     [handleLogout,[]],
     [hideMessages,[]],
+    [linkToImage,[]],
 ]
 
 function JsExecutionOrder(){
