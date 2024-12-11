@@ -1,0 +1,70 @@
+
+<div class="calendar">
+    <div class="header">
+        <select id="month"></select>
+        <select id="year"></select>
+    </div>
+    <div class="days" id="days"></div>
+</div>
+
+<script>
+function generateCalendar(month, year) {
+    const daysContainer = document.getElementById("days");
+    daysContainer.innerHTML = "";
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const lastDate = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 0; i < firstDay; i++) {
+        daysContainer.insertAdjacentHTML('beforeend', '<div></div>');
+    }
+
+    for (let day = 1; day <= lastDate; day++) {
+        const dayElement = document.createElement("div");
+        dayElement.classList.add("day");
+        dayElement.textContent = day;
+        dayElement.addEventListener("click", () => {
+            window.location.href = `/calendar/${year}-${month + 1}-${day}`;
+        });
+        daysContainer.appendChild(dayElement);
+    }
+}
+
+function populateSelectors() {
+    const monthSelect = document.getElementById("month");
+    const yearSelect = document.getElementById("year");
+
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    months.forEach((month, index) => {
+        const option = document.createElement("option");
+        option.value = index;
+        option.textContent = month;
+        monthSelect.appendChild(option);
+    });
+
+    const currentYear = new Date().getFullYear();
+    for (let year = currentYear - 10; year <= currentYear + 10; year++) {
+        const option = document.createElement("option");
+        option.value = year;
+        option.textContent = year;
+        yearSelect.appendChild(option);
+    }
+
+    monthSelect.value = new Date().getMonth();
+    yearSelect.value = currentYear;
+}
+
+populateSelectors();
+
+document.getElementById("month").addEventListener("change", () => {
+    generateCalendar(+month.value, +year.value);
+});
+
+document.getElementById("year").addEventListener("change", () => {
+    generateCalendar(+month.value, +year.value);
+});
+
+generateCalendar(new Date().getMonth(), new Date().getFullYear());
+</script>
+
