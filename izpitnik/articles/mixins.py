@@ -38,9 +38,13 @@ class SetOwnerAttribute:
     def set_is_own(cls,instance, queryset):
         if not hasattr(queryset, '__iter__'):
             queryset.is_own = (instance.request.user.pk == queryset.author.pk) or instance.request.user.is_superuser
+            if instance.request.user.has_perm("articles.change_article"):
+                queryset.can_change = True
             return queryset
         for article in queryset:
             article.is_own = (instance.request.user.pk == article.author.pk) or instance.request.user.is_superuser
+            if instance.request.user.has_perm("articles.change_article"):
+                article.can_change = True
         return queryset
 
 

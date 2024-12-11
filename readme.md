@@ -48,6 +48,15 @@
 
 -----
 
+## Groups
+
+>There Are 3 types of groups:
+> Superusers: can do everything
+> Administrators can edit other's article
+> Users: can only edit their own staff
+
+-----
+
 # Apps Details
 ****
 ### Accounts app

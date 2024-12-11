@@ -26,6 +26,15 @@
                     </ul>
                 </nav>
             {% endif %} 
+            {% if article.can_change %}
+            	<nav>
+                    <ul>
+                        <li><a href="{% url "article-edit" article.pk %}">
+                            
+                        </a></li>
+                    </ul>
+                </nav>
+            {% endif %} 
         </main>
     </article>
 </section>
