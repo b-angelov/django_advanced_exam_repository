@@ -13,4 +13,5 @@ urlpatterns = [
     ])),
     path('user_articles/', ArticlesByUser.as_view(), name='user-articles'),
     path('create/', ArticleAddView.as_view(), name='article-create'),
+    path('<slug:date>/', ArticlesOnDate.as_view(), name='date-articles'),
 ]

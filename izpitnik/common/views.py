@@ -31,3 +31,11 @@ def ErrorView(request, **kwargs):
         'message':message
     }
     return render(request,'common/errors.html',context, status=code)
+
+class CalendarView(ArticlesOnDate):
+    template_name = 'common/calendar_view.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args,**kwargs)
+        context['date'] = self.kwargs.get('date',None)
+        return context

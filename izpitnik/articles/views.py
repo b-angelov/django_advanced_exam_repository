@@ -1,12 +1,16 @@
 from datetime import datetime
+from http.client import HTTPResponse
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.exceptions import BadRequest
 from django.db.models import Q
+from django.http import HttpResponse, Http404, HttpResponseBadRequest
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from rest_framework.status import HTTP_400_BAD_REQUEST
 
 from izpitnik.articles.forms import CreateArticleForm, EditArticleForm
 from izpitnik.articles.mixins import ArticleUrl, article_url, NoDataMessage, SetOwnerAttribute, set_own_attribute
@@ -39,11 +43,19 @@ class ArticlesOnDate(ArticleListView):
     no_data_message = _('for this day')
 
     def __init__(self, *args, **kwargs):
-        self.date = datetime.today().date()
-        if kwargs.get('date', None):
-            self.date = datetime.strptime(kwargs.pop('date'),'%Y-%m-%d').date()
+        # self.date = datetime.today().date()
+        # if kwargs.get('date', None):
+        #     self.date = datetime.strptime(kwargs.pop('date'),'%Y-%m-%d').date()
         super().__init__(*args, **kwargs)
 
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            self.date = datetime.today().date()
+            if kwargs.get('date', None):
+                self.date = datetime.strptime(kwargs.pop('date'),'%Y-%m-%d').date()
+            return super().dispatch(request, *args, **kwargs)
+        except ValueError:
+            return HttpResponse('invalid date', status=404)
 
     def get_queryset(self):
         date = self.date
