@@ -33,6 +33,9 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(post_process=list))
 CSRF_TRUSTED_ORIGINS=config('CSRF_TRUSTED_ORIGINS',cast=Csv(post_process=list))
 
 
+CORS_ORIGIN_WHITELIST = config('CORS_ORIGINS_WHITELIST',cast=Csv(post_process=list))
+
+
 # Application definition
 
 UNFOLD_SETTINGS = [
@@ -66,6 +69,7 @@ INSTALLED_APPS = UNFOLD_SETTINGS + [
     'rest_framework_swagger',
     'drf_yasg',
     'drf_spectacular',
+    'corsheaders',
 
 ] + MY_SETTINGS
 
@@ -93,6 +97,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'izpitnik.common.middlewares.CommonErrorMiddleware',
 ]
 

@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Union
 
 from django.shortcuts import render
@@ -193,6 +194,29 @@ class SingleHolidayByDateView(RetrieveAPIView):
             return super().get(*args,**kwargs)
         except (ValueError, AttributeError):
             return Response('Date not found or bad request!', status=status.HTTP_400_BAD_REQUEST)
+
+
+@extend_schema(
+    responses={200: SaintsSerializer, 400: SaintsSerializer},
+    parameters=[
+        OpenApiParameter(name='year', description='Set year, defaults to current year.', type=str),
+        OpenApiParameter(name='calendar', description='Switch calendars allowed types J G and JIG', type=str),
+
+    ]
+)
+class HolidayByMonth(ListAPIView):
+    serializer_class = HolidayByDateSerializer
+    lookup_url_kwarg = 'month'
+
+    def get_object(self):
+        current_date = datetime.now()
+        year = self.request.GET.get("year") or current_date.year
+        calendar = self.request.GET.get("calendar") or "JIG"
+        month = self.kwargs[self.lookup_url_kwarg]
+        return HolidayOccurrences(date=datetime(year=int(year),day=1,month=month), calendar=calendar)
+
+    def get_queryset(self):
+        return self.get_object().get_holidays_for_this_month()
 
 
 
