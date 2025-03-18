@@ -8,6 +8,7 @@ from django.utils.translation import gettext_lazy as _
 from izpitnik.orth_calendar.managers import HolidaysRelatedManager
 from izpitnik.orth_calendar.utils.calculus import Calculus
 from izpitnik.orth_calendar.validators import RangeValidator
+from calendar import monthrange
 
 
 # Create your models here.
@@ -165,6 +166,23 @@ class HolidayOccurrences(models.Model):
 
     def get_feast(self):
         return self.feast or QuerySet()
+
+    def get_holidays_for_this_month(self, date=None,calendar=None):
+        date = date or self.date
+        calendar = calendar or self.calendar
+        date = date.replace(day=1)
+        current_month_length = monthrange(date.year,date.month)[1]
+        # object = self.__class__(date=date.date(), calendar=calendar)
+        # distance = object.get_distance()
+        # query_set = self.__class__.objects.filter(christmas_distance__in=range(distance["christmas"], distance["christmas"] + current_month_length)).distinct("christmas_distance")
+        query_set = [None] * current_month_length
+        def reset_date(_):
+            nonlocal date
+            res = self.__class__(date=date.date(), calendar=calendar).object_by_date()
+            if date.day < current_month_length:
+                date = date.replace(day=date.day+1)
+            return res
+        return list(map(reset_date, query_set))
 
 
 class RelatedHolidayOccurrences(HolidayOccurrences):
