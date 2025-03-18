@@ -6,4 +6,4 @@ nginx
 nginx.conf
 docker-compose.yml
 run.sh
-rozhdestvenik_azure.yml
+rozhdestvennik_azure.yml
