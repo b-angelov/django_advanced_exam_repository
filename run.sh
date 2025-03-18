@@ -1,1 +1,0 @@
-gunicorn --bind 0.0.0.0:8000 izpitnik.asgi:application -w 4 -k uvicorn.workers.UvicornWorker
