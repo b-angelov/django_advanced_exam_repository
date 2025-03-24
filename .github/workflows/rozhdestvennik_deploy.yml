@@ -36,7 +36,7 @@ jobs:
             cd ${{secrets.VPS_PROJECT_PATH}}
             . ./.venv/bin/activate
             git remote set-url origin git@github.com:b-angelov/django_advanced_exam_repository.git
-            git pull git@github.com:b-angelov/django_advanced_exam_repository.git main
+            git pull main
             python manage.py collectstatic --noinput
             docker compose down
             docker compose up -d --build
