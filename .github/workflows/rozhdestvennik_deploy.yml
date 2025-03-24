@@ -28,9 +28,9 @@ jobs:
           ssh -tt ${{secrets.VPS_SSH_USER}}@${{secrets.VPS_SSH_ADDRESS}} << 'EOF'
             cd ${{secrets.VPS_PROJECT_PATH}}
             git pull origin main
-            docker-compose exec web python manage.py collectstatic --noinput
-            docker-compose down
-            docker-compose up -d --build
+            docker compose exec web python manage.py collectstatic --noinput
+            docker compose down
+            docker compose up -d --build
           EOF
 
       - name: Deployment Success
