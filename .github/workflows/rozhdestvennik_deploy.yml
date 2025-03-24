@@ -28,7 +28,7 @@ jobs:
           chmod 644 ~/.ssh/known_hosts 
 
       - name: Add GitHub repository remote
-        run: git remote set-url origin git@github.com:b-angelov/django_advanced_exam_repository.git main
+        run: git remote set-url origin main git@github.com:b-angelov/django_advanced_exam_repository.git
 
       - name: Deploy to VPS
         run: |
