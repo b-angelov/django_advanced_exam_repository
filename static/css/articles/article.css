@@ -14,7 +14,7 @@
 .single-article article{
     padding: 0.2em;
     background-color: rgb(251,239,218,0.4);
-    border-radius: 40% 40% 7% 7%;
+    border-radius: 14em 14em 7% 7%;
     text-shadow: 0.1em 0.1em 0.1em rgb(15, 81, 22, 0.7), 0 0.1em 0 rgb(121,12,22,0.58);
 }
 

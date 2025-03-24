@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 
 from decouple import Config, config, Csv
+from django.conf import settings
 from django.utils.translation import gettext_noop as _
 from pygments.lexer import default
 
@@ -211,5 +212,12 @@ AUTH_USER_MODEL = 'accounts.User'
 FIXTURE_DIRS = [
     'fixtures'
 ]
+
+if not settings.DEBUG:
+    CSRF_COOKIE_SECURE = True  # If using HTTPS
+    SESSION_COOKIE_SECURE = True  # If using HTTPS
+    SECURE_SSL_REDIRECT = True  # Force HTTPS
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 

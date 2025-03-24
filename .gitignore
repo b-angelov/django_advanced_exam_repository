@@ -11,6 +11,8 @@ rozhdestvennik_azure.yml
 # Mailu configuration files (contain secrets)
 mail.env
 docker-compose.mailu.yml
+mailu.env
+docker.compose.mailu.yml
 
 # Mailu data (contains emails, user credentials)
 mailu/
