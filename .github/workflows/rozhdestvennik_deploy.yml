@@ -39,8 +39,6 @@ jobs:
             cd ${{secrets.VPS_PROJECT_PATH}}
             . ./.venv/bin/activate
           
-#            # Add verbose git output for debugging
-#            GIT_SSH_COMMAND="ssh -v" git pull main
           
             git pull git@github.com:b-angelov/django_advanced_exam_repository.git main
             python manage.py collectstatic --noinput
