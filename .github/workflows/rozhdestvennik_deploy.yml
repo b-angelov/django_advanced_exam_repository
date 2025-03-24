@@ -17,7 +17,7 @@ jobs:
         run: |
           eval "$(ssh-agent -s)"
           mkdir -p ~/.ssh
-          echo "${{ secrets.VPS_DEPLOYS }}" >> ~/.ssh/id_rsa
+          echo "${{ secrets.VPS_DEPLOY_KEY }}" >> ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-add ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.VPS_SSH_ADDRESS }} >> ~/.ssh/known_hosts
