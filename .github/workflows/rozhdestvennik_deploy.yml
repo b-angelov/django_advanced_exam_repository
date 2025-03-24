@@ -27,11 +27,8 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts 
 
-      - name: Test SSH Connection
-        run: ssh -vT ${{secrets.VPS_SSH_USER}}@${{secrets.VPS_SSH_ADDRESS}}
-
       - name: Add GitHub repository remote
-        run: git remote set-url origin git@github.com:b-angelov/django_advanced_exam_repository.git
+        run: git remote set-url origin git@github.com:b-angelov/django_advanced_exam_repository.git main
 
       - name: Deploy to VPS
         run: |
