@@ -20,7 +20,7 @@ jobs:
           echo "${{ secrets.VPS_DEPLOY_KEY }}" >> ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-add ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.VPS_ADDRESS }} >> ~/.ssh/known_hosts
+          ssh-keyscan -H ${{ secrets.VPS_SSH_ADDRESS }} >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts 
 
       - name: Deploy to VPS
