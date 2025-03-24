@@ -32,6 +32,7 @@ jobs:
             python manage.py collectstatic --noinput
             docker compose down
             docker compose up -d --build
+            exit
           EOF
 
       - name: Deployment Success
