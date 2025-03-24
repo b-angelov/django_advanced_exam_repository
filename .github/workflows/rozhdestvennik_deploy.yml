@@ -16,7 +16,7 @@ jobs:
       - name: Setup SSH Agent
         run: |
           eval "$(ssh-agent -s)"
-          ssh-add <(echo "${{ secrets.VPS_DEPLOY }}")
+          ssh-add <(echo "${{ secrets.VPS_DEPLOY_KEY }}")
           ssh-keyscan -H ${{ secrets.VPS_ADDRESS }} >> ~/.ssh/known_hosts
 
       - name: Deploy to VPS
