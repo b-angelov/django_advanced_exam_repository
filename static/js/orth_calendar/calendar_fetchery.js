@@ -1,4 +1,3 @@
-
 const mainUrl = window.location.protocol + "//" + window.location.host + '/orth_calendar'
 
 const urls = {
@@ -22,8 +21,10 @@ const urls = {
         'url':mainUrl +'/holidays',
         'single': '/%single', /* objecs id  in database*/
         'by_date': '/%by_date/', /* date in format yyyy-mm-dd*/
+        'by_month': '/by_month/%by_month/', /* month number */
         'related': 'related=%related', /* bool, 1 or 0 */
         'calendar': 'calendar=%calendar', /* could be J G or JIG*/
+        'year': 'year=%year', /* year number */
         undefined:'',
     }
 }
@@ -35,6 +36,7 @@ function urlJoiner(point_name, params={}){
     if (!params['single']){
         url += params['by_date'] ? obj['by_date'] || '' : ''
     }
+    url += params['by_month'] ? obj['by_month'] || '' : ''
     const pattern = /%[^\?\/\&]+/g
     url = url.replace(pattern, elem=> {
         return params[elem.replace('%','')] || ''
@@ -42,6 +44,7 @@ function urlJoiner(point_name, params={}){
     url += '?'
     obj['single'] = null
     obj['by_date'] = null
+    obj['by_month'] = null
     let parts = []
     for (const param of Object.keys(params)){
         obj[param] ? parts.push(obj[param]) : '';
