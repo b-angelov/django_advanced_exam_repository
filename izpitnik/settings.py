@@ -218,6 +218,8 @@ if not settings.DEBUG:
     SESSION_COOKIE_SECURE = True  # If using HTTPS
     SECURE_SSL_REDIRECT = True  # Force HTTPS
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+else:
+    CORS_ALLOW_ALL_ORIGINS = True
 
 
 

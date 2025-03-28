@@ -2,6 +2,7 @@ from django.urls import path, include
 
 from izpitnik.orth_calendar.views.api_views import SingleSaintView, SaintsListView, FeastListView, SingleFeastView, \
     SingleHolidayView, HolidayListView, SingleHolidayByDateView, HolidayByMonth
+from izpitnik.orth_calendar.views.views import OrthodoxApiJsView
 
 urlpatterns = [
     path('saints/',
@@ -29,4 +30,5 @@ urlpatterns = [
 
          ])
     ),
+    path('apijs/', OrthodoxApiJsView.as_view(), name='orthodox-api-js-view'),
 ]
