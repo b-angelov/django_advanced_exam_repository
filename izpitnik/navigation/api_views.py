@@ -1,10 +1,12 @@
 from rest_framework.generics import ListAPIView
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from izpitnik.navigation.models import Navigation, Menu
 from izpitnik.navigation.serializers import NavigationSerializer, MenuSerializer
 
 
 class NavigationApiView(ListAPIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = NavigationSerializer
     lookup_url_kwarg = "nav_name"
 

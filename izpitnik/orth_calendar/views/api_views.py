@@ -9,6 +9,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import RetrieveAPIView, ListAPIView
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -34,6 +35,9 @@ def switch_serializer(related_first, related_second, serializers:Union[list,tupl
 
 get_v = lambda x: {'true': True, '1': True}.get(x, False)
 
+class AuthCLass:
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
 
 
 # Create your views here.
@@ -46,7 +50,7 @@ get_v = lambda x: {'true': True, '1': True}.get(x, False)
         OpenApiParameter(name='related_holidays', description='Load related holidays', type=str),
     ]
 )
-class SaintsListView(APIView):
+class SaintsListView(AuthCLass,APIView):
 
     serializer_class = SaintsSerializer
 
@@ -71,7 +75,7 @@ class SaintsListView(APIView):
 
     ]
 )
-class SingleSaintView(RetrieveAPIView):
+class SingleSaintView(AuthCLass,RetrieveAPIView):
     queryset = Saint.objects.all()
 
     def get_serializer_class(self):
@@ -93,7 +97,7 @@ class SingleSaintView(RetrieveAPIView):
 
     ]
 )
-class FeastListView(ListAPIView):
+class FeastListView(AuthCLass,ListAPIView):
     queryset = Feast.objects.prefetch_related('occurrences','saint').all()
 
     def get_serializer_class(self):
@@ -114,13 +118,13 @@ class FeastListView(ListAPIView):
 
     ]
 )
-class SingleFeastView(RetrieveAPIView):
+class SingleFeastView(AuthCLass,RetrieveAPIView):
 
     get_serializer_class = FeastListView.get_serializer_class
     queryset = Feast.objects.prefetch_related('occurrences','saint').all()
 
 
-class HolidayListView(ListAPIView):
+class HolidayListView(AuthCLass,ListAPIView):
 
     def get_queryset(self):
         queryset = HolidayOccurrences.objects.all()
@@ -137,7 +141,7 @@ class HolidayListView(ListAPIView):
 
     ]
 )
-class SingleHolidayView(RetrieveAPIView):
+class SingleHolidayView(AuthCLass,RetrieveAPIView):
 
     get_queryset = HolidayListView.get_queryset
 
@@ -157,7 +161,7 @@ class SingleHolidayView(RetrieveAPIView):
 
     ]
 )
-class SingleHolidayByDateView(RetrieveAPIView):
+class SingleHolidayByDateView(AuthCLass,RetrieveAPIView):
 
     # get_queryset = HolidayListView.get_queryset
     serializer_class = HolidayByDateSerializer
@@ -204,7 +208,7 @@ class SingleHolidayByDateView(RetrieveAPIView):
 
     ]
 )
-class HolidayByMonth(ListAPIView):
+class HolidayByMonth(AuthCLass, ListAPIView):
     serializer_class = HolidayByDateSerializer
     lookup_url_kwarg = 'month'
 
