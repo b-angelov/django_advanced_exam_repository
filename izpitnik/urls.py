@@ -21,12 +21,16 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, Sp
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from izpitnik import settings
+from izpitnik.accounts.api.views import CustomTokenObtainPairView, CookieTokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('izpitnik.common.urls')),
+    path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', CookieTokenRefreshView.as_view(), name='token_refresh'),
     path('navigation/', include('izpitnik.navigation.urls')),
     path('dstyles/', include('izpitnik.styling.urls')),
     path('auth/', include('izpitnik.accounts.urls')),
