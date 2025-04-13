@@ -37,7 +37,9 @@ jobs:
             . ./.venv/bin/activate
             git config core.sshCommand "ssh -i ~/.ssh/github_deploy_key -o IdentitiesOnly=yes"
             git pull origin main
+            pip install -r requirements.txt
             python manage.py collectstatic --noinput
+            python manage.py migrate
             docker compose down
             docker compose up -d --build
             exit
