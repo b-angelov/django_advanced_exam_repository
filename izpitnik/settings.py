@@ -240,6 +240,7 @@ if config("ENV") == "production":
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 else:
     CORS_ALLOW_ALL_ORIGINS = True
+    #nothing
 
 
 
