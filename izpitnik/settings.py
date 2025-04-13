@@ -17,6 +17,7 @@ from django.conf import settings
 from django.utils.translation import gettext_noop as _
 from pygments.lexer import default
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -72,6 +73,7 @@ INSTALLED_APPS = UNFOLD_SETTINGS + [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_swagger',
+    'rest_framework_simplejwt.token_blacklist',
     'drf_yasg',
     'drf_spectacular',
     'corsheaders',
@@ -231,13 +233,14 @@ FIXTURE_DIRS = [
     'fixtures'
 ]
 
-if not settings.DEBUG:
+if config("ENV") == "production":
     CSRF_COOKIE_SECURE = True  # If using HTTPS
     SESSION_COOKIE_SECURE = True  # If using HTTPS
     SECURE_SSL_REDIRECT = True  # Force HTTPS
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 else:
     CORS_ALLOW_ALL_ORIGINS = True
+
 
 
 
