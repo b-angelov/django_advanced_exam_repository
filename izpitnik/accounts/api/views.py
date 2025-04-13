@@ -21,7 +21,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token = super().get_token(user)
 
         token['is_admin'] = user.is_staff
-        token['roles'] = [role.name for role in user.groups.all()]
+        # token['roles'] = [role.name for role in user.groups.all()]
         token['is_superuser'] = user.is_superuser
 
         return token
@@ -38,9 +38,8 @@ class CustomTokenObtainPairView(TokenObtainPairView):
         samesite = False
 
         if ENV == "production":
-            pass
-            # secure = True
-            # samesite = 'Strict'
+            secure = True
+            samesite = 'Strict'
 
         if refresh:
             response.set_cookie(

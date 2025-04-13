@@ -235,7 +235,7 @@ FIXTURE_DIRS = [
     'fixtures'
 ]
 
-if config("ENV") == "production":
+if False and config("ENV") == "production":
     CSRF_COOKIE_SECURE = True  # If using HTTPS
     SESSION_COOKIE_SECURE = True  # If using HTTPS
     SECURE_SSL_REDIRECT = True  # Force HTTPS
