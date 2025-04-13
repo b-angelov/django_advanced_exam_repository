@@ -37,7 +37,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
 
         if ENV == "production":
             secure = True
-            samesite = "Strict"
+            samesite = '"Strict"'
 
         if refresh:
             response.set_cookie(
@@ -94,7 +94,6 @@ class ApiLogoutView(APIView):
         response.delete_cookie(
             key='refresh_token',
             samesite=samesite,
-            secure=secure,
             path='/api/token',
             domain=request.build_absolute_uri('/')[:-1].replace("http://", "").replace("https://", "").split(":")[0]
         )
