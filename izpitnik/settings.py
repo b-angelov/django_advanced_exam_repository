@@ -235,14 +235,31 @@ FIXTURE_DIRS = [
     'fixtures'
 ]
 
-if False and config("ENV") == "production":
+if config("ENV") == "production":
     CSRF_COOKIE_SECURE = True  # If using HTTPS
     SESSION_COOKIE_SECURE = True  # If using HTTPS
     SECURE_SSL_REDIRECT = True  # Force HTTPS
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'handlers': {
+            'console': {
+                'class': 'logging.StreamHandler',
+            },
+        },
+        'root': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+        },
+    }
+
 else:
     CORS_ALLOW_ALL_ORIGINS = True
     #nothing
+
+
 
 
 
