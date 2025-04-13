@@ -92,6 +92,7 @@ class ApiLogoutView(APIView):
         response.delete_cookie(
             key='refresh_token',
             samesite=samesite,
+            secure=secure,
             path='/api/token',
             domain=request.build_absolute_uri('/')[:-1].replace("http://", "").replace("https://", "").split(":")[0]
         )
