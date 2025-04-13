@@ -37,7 +37,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
 
         if ENV == "production":
             secure = True
-            samesite = '"Strict"'
+            samesite = True
 
         if refresh:
             response.set_cookie(
