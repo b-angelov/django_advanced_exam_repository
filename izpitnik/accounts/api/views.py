@@ -8,7 +8,9 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from django.conf import settings
-from decouple import config
+
+from izpitnik.settings import ENV
+
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 
@@ -33,7 +35,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
         secure = False
         samesite = False
 
-        if config("ENV") == "production":
+        if ENV == "production":
             secure = True
             samesite = "Strict"
 
@@ -76,7 +78,7 @@ class ApiLogoutView(APIView):
         secure = False
         samesite = False
 
-        if config("ENV") == "production":
+        if ENV == "production":
             secure = True
             samesite = "Strict"
 
