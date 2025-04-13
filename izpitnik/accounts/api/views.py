@@ -1,4 +1,6 @@
 # views.py
+from typing import Literal
+
 from rest_framework import status
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import IsAuthenticated
@@ -36,8 +38,9 @@ class CustomTokenObtainPairView(TokenObtainPairView):
         samesite = False
 
         if ENV == "production":
-            secure = True
-            samesite = True
+            pass
+            # secure = True
+            # samesite = 'Strict'
 
         if refresh:
             response.set_cookie(
