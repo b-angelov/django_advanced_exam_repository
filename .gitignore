@@ -3,6 +3,7 @@ __pycache__
 .env
 .idea
 nginx
+media
 nginx.conf
 docker-compose.yml
 run.sh
