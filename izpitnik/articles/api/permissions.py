@@ -15,3 +15,12 @@ class IsAuthorPermission(permissions.BasePermission):
                 request.user.has_perm("articles.change_article") or
                 obj.author.pk == request.user.pk
         )
+
+class IsAuthorOnAllMethodsPermission(IsAuthorPermission):
+
+    def has_object_permission(self, request, view, obj):
+        return (
+                request.user.is_superuser or
+                request.user.has_perm("articles.change_article") or
+                obj.author.pk == request.user.pk
+        )
