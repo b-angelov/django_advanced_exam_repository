@@ -1,12 +1,12 @@
 from django.db.models import Q
 from rest_framework import status
 from rest_framework.exceptions import NotFound, ParseError
-from rest_framework.generics import ListAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.status import HTTP_404_NOT_FOUND
 
-from izpitnik.articles.api.permissions import IsAuthorPermission
+from izpitnik.articles.api.permissions import IsAuthorPermission, IsAuthorOnAllMethodsPermission
 from izpitnik.articles.api.serializers import ArticleSerializer
 from izpitnik.articles.models import Article
 from izpitnik.orth_calendar.models import HolidayOccurrences
@@ -54,3 +54,16 @@ class CreateArticleAPIView(CreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
+
+class GetUpdateDeleteArticleAPIView(RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthorOnAllMethodsPermission]
+    serializer_class = ArticleSerializer
+    lookup_url_kwarg = "id"
+
+    def get_queryset(self):
+        queryset = Article.objects.filter(id=self.kwargs['id'])#,author=self.request.user.pk)
+        return queryset
+
+    def perform_update(self, serializer):
+        serializer.save()#(author=self.request.user)
+
