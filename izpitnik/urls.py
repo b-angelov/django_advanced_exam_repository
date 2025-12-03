@@ -24,7 +24,7 @@ from rest_framework import permissions
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from izpitnik import settings
-from izpitnik.accounts.api.views import CustomTokenObtainPairView, CookieTokenRefreshView, ApiLogoutView
+from izpitnik.accounts.api.views import CustomTokenObtainPairView, CookieTokenRefreshView, ApiLogoutView, ApiSignUpVew
 from izpitnik.articles.api.views import ArtilceAPIView, CreateArticleAPIView, GetUpdateDeleteArticleAPIView
 
 urlpatterns = [
@@ -32,6 +32,7 @@ urlpatterns = [
     path('', include('izpitnik.common.urls')),
     path('api/', include([
         path('token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
+        path( 'register/', ApiSignUpVew.as_view(), name='api_register'),
         path('token/refresh/', CookieTokenRefreshView.as_view(), name='token_refresh'),
         path('token/logout/', ApiLogoutView.as_view(), name='logout-api'),
         path('articles/', ArtilceAPIView.as_view(), name='articles-api'),
