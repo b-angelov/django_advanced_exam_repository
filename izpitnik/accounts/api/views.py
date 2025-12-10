@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import update_last_login
 from rest_framework import status
 from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.generics import RetrieveUpdateDestroyAPIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.views import APIView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
@@ -13,8 +14,11 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from django.conf import settings
 
+from izpitnik.accounts.api.permissions import IsOwnerPermission, add_or_change_permission_decorator, \
+    delete_permission_decorator
 from izpitnik.accounts.mixins import GenerateTokenMixin
-from izpitnik.accounts.serializers import CustomTokenObtainPairSerializer
+from izpitnik.accounts.serializers import CustomTokenObtainPairSerializer, UserProfileSerializer
+from izpitnik.articles.api.permissions import IsAuthorOnAllMethodsPermission
 from izpitnik.settings import ENV
 
 
@@ -85,4 +89,40 @@ class ApiSignUpVew(UserPassesTestMixin,APIView):
         else:
             return Response(form.errors, status=400)
 
+class GetUpdateDeleteProfileAPIView(RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsOwnerPermission]
+    lookup_url_kwarg = "user_id"
+    serializer_class = UserProfileSerializer
+
+    def get_queryset(self):
+        from izpitnik.accounts.models import User
+        user_id = self.rectify_kwarg(self.request, self.kwargs).get(self.lookup_url_kwarg)
+        return User.objects.filter(pk=user_id).prefetch_related("profile")
+
+    def get(self, request, *args, **kwargs):
+        kwargs = self.rectify_kwarg(request, kwargs)
+        response = super().get(request,*args, **kwargs)
+        return response
+
+    def rectify_kwarg(self, request, kwargs):
+        user_id = kwargs.get(self.lookup_url_kwarg)
+        if user_id == 'my':
+            kwargs[self.lookup_url_kwarg] = str(request.user.pk)
+        return kwargs
+
+
+    @add_or_change_permission_decorator
+    def put(self, request, *args, **kwargs):
+        kwargs = self.rectify_kwarg(request, kwargs)
+        return super().put(request, *args, **kwargs)
+
+    @add_or_change_permission_decorator
+    def patch(self, request, *args, **kwargs):
+        kwargs = self.rectify_kwarg(request, kwargs)
+        return super().patch(request, *args, **kwargs)
+
+    @delete_permission_decorator
+    def delete(self, request, *args, **kwargs):
+        kwargs = self.rectify_kwarg(request, kwargs)
+        return super().delete(request, *args, **kwargs)
 
