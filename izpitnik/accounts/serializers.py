@@ -17,6 +17,9 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         return token
 
 class ProfileSerializer(serializers.ModelSerializer):
+
+    image = serializers.ImageField(required=False, allow_null=True, allow_empty_file=True)
+
     class Meta:
         model = Profile
         fields = ['description', 'image', 'birth_date']
@@ -44,3 +47,4 @@ class UserProfileSerializer(serializers.ModelSerializer):
             profile.save()
 
         return instance
+
