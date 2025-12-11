@@ -6,6 +6,7 @@ from django.contrib.auth.models import update_last_login
 from rest_framework import status
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.views import APIView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
@@ -93,6 +94,7 @@ class GetUpdateDeleteProfileAPIView(RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerPermission]
     lookup_url_kwarg = "user_id"
     serializer_class = UserProfileSerializer
+    parser_classes = (MultiPartParser, FormParser, JSONParser)
 
     def get_queryset(self):
         from izpitnik.accounts.models import User
@@ -125,4 +127,12 @@ class GetUpdateDeleteProfileAPIView(RetrieveUpdateDestroyAPIView):
     def delete(self, request, *args, **kwargs):
         kwargs = self.rectify_kwarg(request, kwargs)
         return super().delete(request, *args, **kwargs)
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+        uploaded = self.request.FILES.get('image') or self.request.FILES.get('avatar') or self.request.FILES.get(
+            'profile_image')
+        if uploaded and hasattr(instance, 'profile'):
+            instance.profile.image = uploaded
+            instance.profile.save()
 
