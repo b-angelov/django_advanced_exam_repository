@@ -128,6 +128,10 @@ class GetUpdateDeleteProfileAPIView(RetrieveUpdateDestroyAPIView):
         kwargs = self.rectify_kwarg(request, kwargs)
         return super().delete(request, *args, **kwargs)
 
+    def perform_destroy(self, instance):
+        instance.is_active = False
+        instance.save()
+
     def perform_update(self, serializer):
         instance = serializer.save()
         uploaded = self.request.FILES.get('image') or self.request.FILES.get('avatar') or self.request.FILES.get(
