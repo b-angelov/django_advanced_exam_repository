@@ -19,7 +19,7 @@ class ArtilceAPIView(AuthClass, ListAPIView):
     serializer_class = ArticleSerializer
 
     def get_object(self):
-        obj = Article.objects.all()
+        obj = Article.objects.filter(author__is_active=True)
         if self.request.GET.get('id'):
             try:
                 obj.get(pk=self.request.GET.get('id'))

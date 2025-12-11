@@ -25,6 +25,9 @@ class ArticleListView(SetOwnerAttribute, NoDataMessage, ArticleUrl, ListView):
     template_name = 'articles/articles.html'
     model = Article
 
+    def get_queryset(self, *args, **kwargs):
+        return super().get_queryset(*args,**kwargs).filter(author__is_active=True)
+
 
 class ArticlesByUser(ArticleListView):
     no_data_message = _('for this user')
