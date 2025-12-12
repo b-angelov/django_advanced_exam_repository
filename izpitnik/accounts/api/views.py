@@ -73,6 +73,7 @@ class ApiSignUpVew(UserPassesTestMixin,APIView):
 
     def test_func(self):
         # return not self.request.user.is_authenticated
+        #testing...
         return True
 
     def post(self, request):
