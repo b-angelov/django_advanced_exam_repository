@@ -72,7 +72,8 @@ class ApiSignUpVew(UserPassesTestMixin,APIView):
     permission_classes = [AllowAny]
 
     def test_func(self):
-        return not self.request.user.is_authenticated
+        # return not self.request.user.is_authenticated
+        return True
 
     def post(self, request):
 
