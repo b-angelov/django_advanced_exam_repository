@@ -1,5 +1,7 @@
 from rest_framework import serializers
 
+# from izpitnik.accounts.models import User
+from izpitnik.accounts.serializers import UserBasicSerializer
 from izpitnik.articles.models import Article
 from izpitnik.orth_calendar.models import Saint, Feast, HolidayOccurrences
 from izpitnik.orth_calendar.serializers.feasts import FeastsSerializer
@@ -35,6 +37,10 @@ class ArticleSerializer(serializers.ModelSerializer):
     holiday_ids = serializers.PrimaryKeyRelatedField(
         source='holiday', many=True, write_only=True,
         queryset=HolidayOccurrences.objects.all(), required=False
+    )
+    author = UserBasicSerializer(
+        read_only=True,
+        many=False,
     )
 
     image = serializers.ImageField(required=False,allow_null=True,allow_empty_file=True)

@@ -15,6 +15,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from django.conf import settings
 
+from izpitnik.accounts.api.filters import filter_user_response
 from izpitnik.accounts.api.permissions import IsOwnerPermission, add_or_change_permission_decorator, \
     delete_permission_decorator
 from izpitnik.accounts.mixins import GenerateTokenMixin
@@ -93,16 +94,19 @@ class ApiSignUpVew(UserPassesTestMixin,APIView):
             return Response(form.errors, status=400)
 
 class GetUpdateDeleteProfileAPIView(RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsOwnerPermission]
+    # permission_classes = [IsOwnerPermission]
+    permission_classes = [AllowAny]
     lookup_url_kwarg = "user_id"
     serializer_class = UserProfileSerializer
     parser_classes = (MultiPartParser, FormParser, JSONParser)
+    allowed_kwarg_values = ['my']
 
     def get_queryset(self):
         from izpitnik.accounts.models import User
         user_id = self.rectify_kwarg(self.request, self.kwargs).get(self.lookup_url_kwarg)
         return User.objects.filter(pk=user_id).prefetch_related("profile")
 
+    @filter_user_response
     def get(self, request, *args, **kwargs):
         kwargs = self.rectify_kwarg(request, kwargs)
         response = super().get(request,*args, **kwargs)
@@ -110,7 +114,11 @@ class GetUpdateDeleteProfileAPIView(RetrieveUpdateDestroyAPIView):
 
     def rectify_kwarg(self, request, kwargs):
         user_id = kwargs.get(self.lookup_url_kwarg)
+        if not user_id.isdigit() and user_id not in self.allowed_kwarg_values:
+            raise AuthenticationFailed('Invalid user identifier.')
         if user_id == 'my':
+            if not request.user.is_authenticated:
+                raise AuthenticationFailed('Authentication credentials were not provided.')
             kwargs[self.lookup_url_kwarg] = str(request.user.pk)
         return kwargs
 
