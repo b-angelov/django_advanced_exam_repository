@@ -79,3 +79,22 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.title
+
+class Likes(models.Model):
+
+    user = models.ForeignKey(
+        to=User,
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+    )
+
+    article = models.ForeignKey(
+        to=Article,
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return f"{self.user.username} likes {self.article.title}"

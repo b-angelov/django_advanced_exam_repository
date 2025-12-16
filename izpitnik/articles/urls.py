@@ -1,5 +1,6 @@
 from django.urls import path, include
 
+# from izpitnik.articles.api.views import ArticleLikeApiView
 from izpitnik.articles.views import ArticleListView, ArticlesOnDate, ArticleView, ArticlesByUser, ArticleAddView, \
     ArticleDeleteView, ArticleEditView
 

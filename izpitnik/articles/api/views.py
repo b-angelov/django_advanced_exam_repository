@@ -7,8 +7,8 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_404_NOT_FOUND
 
 from izpitnik.articles.api.permissions import IsAuthorPermission, IsAuthorOnAllMethodsPermission
-from izpitnik.articles.api.serializers import ArticleSerializer
-from izpitnik.articles.models import Article
+from izpitnik.articles.api.serializers import ArticleSerializer, LikesSerializer
+from izpitnik.articles.models import Article, Likes
 from izpitnik.orth_calendar.models import HolidayOccurrences
 
 
@@ -42,6 +42,13 @@ class ArtilceAPIView(AuthClass, ListAPIView):
             obj = obj.filter(author=self.request.GET.get('author'))
         return obj
 
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context.update({
+            "request": self.request
+        })
+        return context
+
     def get_queryset(self):
 
         queryset = self.get_object().all()
@@ -66,4 +73,27 @@ class GetUpdateDeleteArticleAPIView(RetrieveUpdateDestroyAPIView):
 
     def perform_update(self, serializer):
         serializer.save()#(author=self.request.user)
+
+class ArticleLikeApiView(AuthClass, CreateAPIView):
+    serializer_class = LikesSerializer
+
+    def post(self, request, *args, **kwargs):
+        article_id = self.kwargs.get('id')
+        try:
+            article = Article.objects.get(pk=article_id)
+        except Article.DoesNotExist:
+            raise NotFound(detail="Article not found", code=HTTP_404_NOT_FOUND)
+        likes = Likes.objects.filter(article=article, user=self.request.user).first()
+        liked = False
+        if likes:
+            likes.delete()
+        else:
+            likes = Likes()
+            likes.article = article
+            likes.user = self.request.user
+            likes.save()
+            liked = True
+        article.save()
+        serializer = self.get_serializer({}, context={"article":article,"user":self.request.user})
+        return Response(serializer.data, status=status.HTTP_200_OK)
 

@@ -26,7 +26,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from izpitnik import settings
 from izpitnik.accounts.api.views import CustomTokenObtainPairView, CookieTokenRefreshView, ApiLogoutView, ApiSignUpVew, \
     GetUpdateDeleteProfileAPIView
-from izpitnik.articles.api.views import ArtilceAPIView, CreateArticleAPIView, GetUpdateDeleteArticleAPIView
+from izpitnik.articles.api.views import ArtilceAPIView, CreateArticleAPIView, GetUpdateDeleteArticleAPIView, \
+    ArticleLikeApiView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,6 +39,7 @@ urlpatterns = [
         path('token/refresh/', CookieTokenRefreshView.as_view(), name='token_refresh'),
         path('token/logout/', ApiLogoutView.as_view(), name='logout-api'),
         path('articles/', ArtilceAPIView.as_view(), name='articles-api'),
+        path('articles/<int:id>/like/', ArticleLikeApiView.as_view(), name='article-like'),
         path('articles/create', CreateArticleAPIView.as_view(), name='articles-create-api'),
         path('articles/<int:id>/edit', GetUpdateDeleteArticleAPIView.as_view(), name='articles-edit-api'),
         path('schema/', SpectacularAPIView.as_view(), name='schema'),
