@@ -19,7 +19,7 @@ class ArtilceAPIView(AuthClass, ListAPIView):
     serializer_class = ArticleSerializer
 
     def get_object(self):
-        obj = Article.objects.filter(author__is_active=True)
+        obj = Article.objects.filter(author__is_active=True).order_by('pk')
         if self.request.GET.get('id'):
             try:
                 obj.get(pk=self.request.GET.get('id'))
@@ -40,6 +40,8 @@ class ArtilceAPIView(AuthClass, ListAPIView):
             obj = obj.filter(holiday=self.request.GET.get('holiday'))
         if self.request.GET.get('author'):
             obj = obj.filter(author=self.request.GET.get('author'))
+        if self.request.GET.get('favorites') and self.request.user.is_authenticated:
+            obj = obj.filter(likes__user=self.request.user)
         return obj
 
     def get_serializer_context(self):
