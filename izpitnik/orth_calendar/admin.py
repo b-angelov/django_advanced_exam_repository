@@ -14,7 +14,7 @@ class HolidayOccurrencesAdminMixin:
     def save_model(self, request, obj, form, change):
         feasts = form.cleaned_data["feast"]
         saints = form.cleaned_data["saint"]
-        calculus = Calculus(form.cleaned_data["date"],form.cleaned_data["calendar"])
+        calculus = Calculus(form.cleaned_data["date"],calendar=form.cleaned_data["calendar"])
         obj.easter_distance = self.__get_distance("easter_distance",calculus.easter_distance,form.cleaned_data)
         obj.christmas_distance = self.__get_distance("christmas_distance",calculus.christmas_distance,form.cleaned_data)
         obj.save()
