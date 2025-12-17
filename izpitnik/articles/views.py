@@ -21,12 +21,12 @@ from izpitnik.orth_calendar.models import HolidayOccurrences
 
 # Create your views here.
 
-class ArticleListView(SetOwnerAttribute, NoDataMessage, ArticleUrl, ListView):
+class ArticleListView(ArticleUrl, SetOwnerAttribute, NoDataMessage, ListView):
     template_name = 'articles/articles.html'
     model = Article
 
     def get_queryset(self, *args, **kwargs):
-        return super().get_queryset(*args,**kwargs).filter(author__is_active=True)
+        return self.set_urls(super().get_queryset(*args,**kwargs).filter(author__is_active=True))
 
 
 class ArticlesByUser(ArticleListView):
@@ -63,7 +63,8 @@ class ArticlesOnDate(ArticleListView):
     def get_queryset(self):
         date = self.date
         obj = self.model(date=date).object_by_date()
-        return Article.objects.filter(Q(saint__in=obj.saint) | Q(feast__in=obj.feast))
+        articles = self.set_urls(Article.objects.filter(Q(saint__in=obj.saint) | Q(feast__in=obj.feast)))
+        return articles
 
 class ArticleView(ArticleUrl,DetailView):
     model = Article
